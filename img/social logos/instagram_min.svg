@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="273.81" y1="823.04" x2="726.19" y2="176.96" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb900"/>
+      <stop offset="1" stop-color="#9100eb"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="404.17" y1="636.85" x2="595.83" y2="363.14" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="655.6" y1="353.81" x2="699.54" y2="291.05" xlink:href="#linear-gradient"/>
+  </defs>
+  <title>instagram_min</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="instagram_minimal" data-name="instagram minimal">
+      <g>
+        <path class="cls-1" d="M653.2,834.25H346.8C247,834.25,165.75,753,165.75,653.2V346.8C165.75,247,247,165.75,346.8,165.75H653.2C753,165.75,834.25,247,834.25,346.8V653.2C834.25,753,753,834.25,653.2,834.25ZM346.8,221.46A125.48,125.48,0,0,0,221.46,346.8V653.2A125.49,125.49,0,0,0,346.8,778.54H653.2A125.48,125.48,0,0,0,778.54,653.2V346.8A125.48,125.48,0,0,0,653.2,221.46Z"/>
+        <path class="cls-2" d="M500,667.13c-92.16,0-167.12-75-167.12-167.12s75-167.12,167.13-167.12,167.13,75,167.13,167.13S592.16,667.13,500,667.13Zm0-278.54A111.42,111.42,0,1,0,611.42,500,111.55,111.55,0,0,0,500,388.58Z"/>
+        <circle class="cls-3" cx="677.57" cy="322.43" r="38.3"/>
+      </g>
+      <rect class="cls-4" width="1000" height="1000"/>
+    </g>
+  </g>
+</svg>

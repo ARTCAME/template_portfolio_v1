@@ -1,0 +1,1723 @@
+/*
+ * INDEX:
+ * - General styles variables
+ * - Bootstrap theming overwrites
+ * - Sass extends
+ * - Global styles/classes
+ * - Styles for:
+ *    · Main/Secondary navs
+ *    · Social networks fixeds
+ *    · Welcome section / carousel
+ *    · Interludes
+ *    · Works section
+ *    · Photos section
+ *    · Media section
+ *    · Last articles section
+ *    · About me section
+ *    · Articles section
+ *    · One article page
+ *    · One work page
+ *    · Articles page
+ *    · Main footer
+ *    · Loading page
+ *    · Scroll top button
+ *    · Growables modal
+ *    · Noscript styles
+ *    · Animations
+ * 
+ * Note: inside the below mentioned blocks the elements are alphabetically ordered and nested starting at its firstly parent and 
+ * using the specify priority: tags, classes, pseudo, events, nesteds (and the same on nested levels)
+ *
+ *
+ * GENERAL TRICKS: 
+ * - 'nojs-improve' class will be deleted when js is enabled and provides a method to manage no-js functionalities when the user disables 
+ * it, is specially useful on the nav and sticky headers behavior
+ */
+
+@import './functions.scss';
+@import './mixins.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Global variables */
+
+$primary-blue:                #103C83;
+$primary-black:               #111111;
+$primary-gray:                #bdc8da;
+$primary-red:                 #b94848;
+$primary-white:               #fafafa;
+
+$footer-row-margin:             0.25rem 1rem 1rem 1rem;
+$footer-row-padding:            0.25rem 1.25rem 1.25rem 1.25rem;
+
+$nav-height:                    70px;
+$nav-height-sm:                 150px;
+$nav-height-sticked:            70px;
+
+$primary-border:                2px solid $primary-black;
+$primary-border-white:          2px solid $primary-white;
+
+$serif:                         'Playfair Display', serif; /* 400-900 */
+$sans:                          'Montserrat', sans-serif;
+
+$weight-titles:                 600;
+$weight-subtitles:              400;
+$weight-navs:                   800;
+
+/* END global variables */
+
+
+/* Bootstrap overwrites */
+
+$font-family-base:                  $sans;
+
+$card-border-radius:                0;
+$card-border-color:                 $primary-black;
+
+$input-btn-focus-box-shadow:        unset;
+$input-border-radius:               0;
+$input-focus-border-color:          $primary-blue;
+
+$list-group-color:                  $primary-blue;
+$list-group-border-color:           $primary-blue;
+$list-group-border-radius:          0;
+$list-group-action-color:           $primary-blue;
+$list-group-action-hover-color:     $primary-blue;
+
+$modal-fade-transform:              scale(.98);
+
+$pagination-color:                  $primary-black;
+$pagination-bg:                     none;
+$pagination-border-width:           0;
+
+$pagination-hover-color:            $primary-white;
+$pagination-hover-bg:               none;
+
+$primary:                           $primary-blue;
+
+/* END bootstrap overwrites */
+
+/* Import bootstrap and its default variables */
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/* Owl carousel overwrites */
+
+$dot-background:		                rgba($primary-blue, 0.4);
+$dot-background-active:	            rgba($primary-blue, 0.8);
+
+$dot-width:				                  12px;
+$dot-height:			                  12px;
+
+/* END owl carousel overwrites */
+
+/* Import owl carousel and its default variables */
+@import "../assets/owlcarousel/dist/assets/owl.carousel.min.css";
+// @import "../assets/owlcarousel/dist/assets/owl.theme.default.min.css";
+@import "../assets/owlcarousel/src/scss/theme.default";
+
+
+/* Extends */
+
+/* Used on the custom footer row of the cards when the default footer is not used */
+%card-footer-row {
+  bottom: 0;
+  padding: $footer-row-padding;
+  position: absolute;
+  width: 100%;
+  small {
+    margin: auto 0;
+  }
+}
+
+/* Horizontal card (img-body) styles */
+%card-h {
+  border: unset;
+  border-bottom: $primary-border;
+  margin: 15px 0;
+  min-height: 300px;
+  .btn {
+    @extend %nav-ux-btn;
+  }
+  [class ^= col-md] {
+    min-height: 300px;
+    overflow: hidden;
+    position: relative;
+    &.img-col {
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
+    }
+    .card-img {
+      @extend %centered;
+      border: 1px solid transparent;
+      box-sizing: border-box;
+      height: 100%;
+      max-height: 100%; 
+      position: absolute;
+      top: 50%;
+      width: auto;
+    }
+    .card-text {
+      line-height: 1.4rem;
+      margin-bottom: 3rem; /* Prevent overflow the absolute positioned footer */
+      overflow: hidden;
+      padding: .25rem;
+    }
+    .card-title {
+      @include textshadow_base($primary-white);
+      border-bottom: $primary-border;
+      display: inline-block;
+    }
+    .footer-row {
+      @extend %card-footer-row;
+    }
+  }
+}
+
+/* X and Y axis centered on its relative parent */
+%centered {
+  left: 50%;
+  position: absolute; 
+  top: 50%; 
+  transform: translate(-50%, -50%);
+}
+
+/* X axis centered and moved down on the Y axis */
+%centered-bottom {
+  left: 50%;
+  position: absolute; 
+  top: 65%; 
+  transform: translate(-50%, -50%);
+}
+
+/* X axis centered */
+%centered-h {
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+/* X axis centered and moved up on the Y axis */
+%centered-top {
+  left: 50%;
+  position: absolute; 
+  top: 35%; 
+  transform: translate(-50%, -50%);
+}
+
+/* Gallery styles for the rows which contains the img */
+%growables-row {
+  span {
+    cursor: pointer;
+    &::before {
+      @include transition_base((filter, opacity, transform));
+      @include boxshadow_base($blur: 4px, $color: rgba($primary-black, .6));
+      background-color: rgba($primary-white, .4);
+      content: inline_svg('<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrows-angle-expand" fill="#111111" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z"/></svg>');
+      cursor: pointer;
+      display: block;
+      filter: blur(10px);
+      height: 1.5rem;
+      line-height: 1.7rem;
+      opacity: 0;
+      position: absolute;
+      right: 15px;
+      text-align: center;
+      transform: scale(0.95);
+      top: 15px;
+      width: 1.5rem;
+      z-index: 4;
+    }
+    &:hover {
+      &::before {
+        filter: blur(0);
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    img {
+      @include boxshadow_base($blur: 5px, $color: rgba($primary-black, .6));
+      @include media-breakpoint-down(sm) {
+        max-height: 100px;
+      }
+      @include transition_base(box-shadow);
+      cursor: pointer;
+      height: auto;
+      margin-right: 10px;
+      margin-top: 10px;
+      max-height: 200px;
+      position: relative;
+      vertical-align: middle;
+      width: auto;
+      z-index: -1;
+      /* Class to delete the shadow on no rect elements like icons, logos, etc */
+      &.no-shadow {
+        box-shadow: unset!important;
+      }
+      &:hover {
+        @include boxshadow_base($blur: 8px, $color: rgba($primary-black, .8));
+      }
+    }
+  }
+}
+
+/* Opacity default behaviour on hover */
+%hover-opacity {
+  @include transition_base(opacity);
+  opacity: .7;
+  &:hover {
+    opacity: .9;
+  }
+}
+
+/* Nav elements behaviour, all will have a simulated border bottom wich grows to 100% height on hover, see nav_ux mixin */
+%nav-ux-btn {
+  @include nav_ux($primary-black, $primary-white);
+  font-weight: 600;
+}
+
+/* Top position for the owl carousel nav dots */
+%owl-dots-top {
+  margin-top: 25px; 
+  padding-top: 15px;
+  .owl-dots {
+    margin-top: 0;
+    position: absolute;
+    top: -15px;
+    // z-index: 1
+    width: 100%;
+  }
+}
+
+/* Default padding for the major of sections */
+%padding-section {
+  padding: 180px 0;
+}
+
+/* Shared margins for the secondary pages headers */
+%secondary-header-margin {
+  @include media-breakpoint-up(sm) {
+    margin-top: 350px!important;
+  }
+  margin-top: 300px!important;
+}
+
+/* Shared styles between all the share groups */
+%share-base {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  text-align: center;
+  i, svg {
+    @include transition_base(color);
+    color: $primary-black;
+    margin: 0 3px;
+    height: 20px;
+    width: 20px;
+    &:hover {
+      color: $primary-blue
+    }
+  }
+  i::before {
+    font-size: 20px;
+  }
+}
+
+/* Shared styles between the social buttons */
+%social-btn {
+  height: 40px;
+  width: 40px;
+}
+
+/* END extends */
+
+
+/* Global styles */
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: $primary-white;
+  position: relative; /* Scrollspy required */
+  overflow-x: hidden; /* IE */
+}
+section {
+  background: $primary-white;
+  display: inline-block;
+  position: relative;
+  margin-top: -7px; /* Removing the gap between inline-blocks */
+  width: 100%;
+  z-index: 5;
+  /* Removing the gap between inline-blocks */
+  &:not(.interlude) {
+    min-height: calc(100% + 7px);
+  }
+}
+h1, h2, h3, h4, h5 {
+  font-family: $serif!important;
+  font-weight: $weight-titles;
+}
+/* Appear on scroll element */
+.appear-elem {
+  opacity: 0;
+  transform: translateY(25px);
+  &.appeared {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  $num: random();
+  /* The appearing will be later for every sibling element */
+  @for $i from 0 to 5 {
+    $num: $num + 0.15;
+    &:nth-child(#{$i}) {  
+      /* Some of the transitioned are added on certain elements like on #photos-section */
+      @include transition_base((filter, opacity, transform), $duration: $num + s);
+    }
+  }
+}
+.card {
+  text-align: justify;
+}
+/* Shared styles between fixed headers on secondary pages */
+.secondary-fixed-header {
+  @include media-breakpoint-up(sm) {
+    height: 250px;
+    margin-top: $nav-height;  
+  }
+  @include transition_base((height, margin-top));
+  align-items: center;
+  display: flex;
+  height: 100px;
+  left: 50%; /* Allows to add no 100% width headers */
+  margin-top: $nav-height-sm;
+  overflow: hidden;
+  position: fixed;
+  transform: translateX(-50%); /* Allows to add no 100% width headers */
+  z-index: 5;
+  width: 100%;
+  /* The header will not be sticked when js is disabled to prevent that occupes more than necessary screen space */
+  &.nojs-improve {
+    left: 0;
+    position: relative;
+    transform: translateX(0);
+  }
+  /* Class added to repositioning the header when the secondary nav has been shrinked (the secondary nav will only be shrinked on sm up screens) */
+  &.to-stick {
+    @include media-breakpoint-up(sm) {
+      margin-top: $nav-height;
+    }
+  }
+  &.sticked {
+    @include transition_base((height, margin-top));
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: center;
+    height: 100px;
+    .secondary-fixed-header-img {
+      opacity: .6;
+    }
+    .secondary-fixed-header-titles {
+      h1, h3 {
+        @include transition_base((font-size, margin-top));
+      }
+      h1 {
+        font-size: calc(10px + 1vw);
+        margin-top: 15px;
+      }
+      h3 {
+        font-size: 0;
+      }
+    }
+  }
+  .secondary-fixed-header-img {
+    @extend %centered;
+    @include transition_base((opacity));
+    min-height: 100%;
+    min-width: 100%;
+    z-index: -1;
+  }
+  .secondary-fixed-header-titles {
+    @include media-breakpoint-down(sm) {
+      h1 {
+        font-size: calc(10px + 1vw);
+        margin-top: 15px;
+      }
+      h3 {
+        font-size: 0;
+      }
+    }
+    @include transition_base((height));
+    background-color: rgba($primary-black, .4);
+    color: $primary-white;
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+    z-index: 6;
+    * {
+      font-weight: 800;
+    }
+    h1, h3 {
+      @include transition_base((font-size, margin-top));
+    }
+  }
+}
+.icon-input-group {
+  span {
+    align-items: center;
+    color: $primary-blue;
+    display: flex;
+    height: 100%;
+    position: absolute;
+    width: 35px;
+    text-align: center;
+    z-index: 4;
+    i, svg {
+      margin: 0 auto;
+    }
+  }
+  input{
+    outline: none;
+    padding-left: 35px;
+  }
+}
+.owl-carousel {
+  cursor: e-resize;
+  &.owl-drag,
+  &.owl-grab {
+    cursor: e-resize;
+  }
+}
+.text-highlight{
+  @include linear_gradient(rgba($primary-blue, 0.4), rgba($primary-black, 0.4));
+  padding: 0 3px;
+}
+/* Carousels controls */
+.carousel-custom-controls {
+  background-color: rgba($primary-black, .6);
+  height: 6em;
+  overflow: hidden;
+  width: 45px!important;
+}
+.carousel-control-next,
+.carousel-control-prev {
+  @include transition_base(opacity);
+  margin: 300px 0; /* Allows interact with the other navigation without disturbing on hover events */
+  overflow: hidden;
+  .carousel-control-next-icon {
+    background-image: inline-svg('<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/></svg>');
+  }
+  .carousel-control-prev-icon {
+    background-image: inline-svg('<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/></svg>');
+  }
+  [class^=carousel-control] {
+    @include transition_base(transform);
+    transform: scale(2);
+  }
+  &:hover .carousel-control-next-icon {
+    transform: scale(2.1) translateX(3px);
+  }
+  &:hover .carousel-control-prev-icon {
+    transform: scale(2.1) translateX(-3px);
+  }
+}
+/* Added class to hide some elements when js is not actived */
+.nojs-hide {
+  display: none;
+}
+.subtitle {
+  font-style: italic;
+  font-weight: $weight-subtitles;
+}
+.text-underlined {
+  display: inline-block;
+  position: relative;
+  &::before {
+    @include linear_gradient(rgba($primary-blue, 0.4), rgba($primary-black, 0.4));
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+  }  
+}
+
+/* END globals styles */
+
+/* Main/Secondary navs */
+
+/* Control individually certain behaviours of the main nav and the secondary navs */
+.ctn-secondary-nav {
+  @include transition_base(height);
+  &.fixed {
+    background-color: rgba($primary-black, .6);
+  }
+}
+.ctn-main-nav {
+  bottom: 30px;
+  &.fixed {
+    background-color: rgba($primary-white, .8);
+  }
+}
+#ctn-nav-header {
+  @include media-breakpoint-up(sm) {
+    top: $nav-height;
+  }
+  background-color: rgba($primary-white, .8);
+  bottom: 0px;
+  height: 50px;
+  overflow: hidden;
+  position: fixed;
+  top: $nav-height-sm;
+  transform: translateY(-5px);
+  visibility: hidden;
+  width: 100%;
+  z-index: 6;
+  &.shown {
+    @include transition_base((transform, visibility));
+    transform: translateY(0px);
+    visibility: visible;
+  }
+  * {
+    @include media-breakpoint-down(md) {
+      font-size: 18px;
+    }
+    font: {
+      family: $serif;
+      size: 25px;
+      style: italic;
+      weight: $weight-navs;
+    }
+  }
+  li, ul {
+    -webkit-animation-name: swipeY;
+    -webkit-animation-duration: 25s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: swipeY;
+    animation-duration: 25s;
+    animation-iteration-count: infinite;
+  }
+  li {
+    display: block;
+    height: 48px;
+    line-height: 50px;
+    margin: 0;
+    text-align: left;
+  }
+  ul {
+    @include media-breakpoint-up(md) {
+      display: inline-block;
+    }
+    display: none;
+    list-style: none;
+  }
+  .main-header-title {
+    @include media-breakpoint-up(md) {
+      text-align: right
+    }
+    display: inline;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+
+/* Shared styles between all the navs */
+.ctn-main-nav,
+.ctn-secondary-nav {
+  @extend %centered-h;
+  height: $nav-height-sm;
+  width: 100%;
+  z-index: 6;
+  @include media-breakpoint-down(md) {
+    width: 100%;
+  }
+  @include media-breakpoint-up(sm) {
+    height: $nav-height;
+  }
+  /* When js is disabled the navs will be fixed at the top of the page */
+  &.nojs-improve {
+    position: fixed;
+    top: 0;
+  }
+  .main-nav,
+  .secondary-nav {
+    @extend %centered;
+    display: inline-flex;
+    width: 80%;
+    font: {
+      family: $serif;
+      size: 30px;
+      style: italic;
+      weight: $weight-navs;
+    }
+    .link-wrp {
+      cursor: pointer;
+      display: block;
+      margin-top: 3px;
+      padding: {
+        left: .25rem;
+        right: .25rem; 
+      }
+      width: 200px;
+      .nav-link {
+        @include media-breakpoint-down(md) {
+          font-size: 22px;
+        }
+        @include nav_ux($primary-white, $primary-black);
+        @include transition_base((color, text-shadow));
+        padding: 0 5px;
+        &:hover,
+        &.active {
+          text-shadow: unset;
+        }
+      }
+    }
+  }
+  /* Individual behaviour for the main-nav elements that, for the sake of maintain the contrast, needs a text-shadow  */
+  .main-nav .link-wrp .nav-link {
+    @include textshadow_base;
+  }
+  &.fixed {
+    position: fixed;
+    top: 0;
+  }
+  /* Class added when the nav is out of the welcome section */
+  &.negative {
+    .nav-link {
+      @include nav_ux($primary-black!important, $primary-white!important);
+      text-shadow: none!important;
+    }
+  }
+}
+
+/* Navs position affects to the position of the social elements when are fixed and the width of the wiewport makes overlap these elements */
+#ctn-main-nav.fixed + .fixed-social-btn-wrp,
+.ctn-secondary-nav + .fixed-social-btn-wrp {
+  @include media-breakpoint-down(md) {
+    transform: translateY($nav-height + 20px);
+  }
+}
+
+/* END main/secondary navs */
+
+
+/* Social network fixeds */
+
+/* 
+ * Class shared between social fixed elements on both sides. Every side defines its specific values on its tree. 
+ * This styles will generate a ::before element to improve the ux on copy the content of ^.copy-asset
+ */
+[class ^= copy-asset] {
+  @include boxshadow_base($color: rgba(60, 60, 60, 1));
+  @include transition_base((left, right), $delay: .25s, $duration: .5s);
+  background-color: $primary-white;
+  bottom: 0;
+  color: $primary-blue;
+  cursor: copy;
+  font-size: 10px;
+  margin: auto;
+  height: 21px; 
+  line-height: 21px;
+  position: absolute;
+  right: -300px; /* Must be longer than the text content length */
+  top: 0;
+  z-index: -1;
+  &.alert-text {
+    &::before {
+      animation: slideup_hide .5s forwards;
+      visibility: visible;
+    }
+  }
+  &::before {
+    content: 'Copied!';
+    color: $primary-blue;
+    display: block;
+    font-weight: 600;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: -13px;
+    visibility: hidden;
+    width: 100%;
+  }
+}
+
+/* Right fixed button: social networks */
+.fixed-social-btn-wrp {
+  @include transition_base((opacity, right, transform), $delay: .25s);
+  cursor: pointer;
+  font-weight: 600;
+  position: fixed;
+  right: 0px;
+  top: 24.5px;
+  width: 40px;
+  z-index: 9;
+  &.to-hide {
+    right: -45px;
+  }
+  .contact-social-btn,
+  .social-network-btns-wrp {
+    @include boxshadow_base($color: rgba(60, 60, 60, 1));
+  }
+  .copy-asset-right {
+    &:hover {
+      right: 37px;
+    }
+  }
+  .social-btn {
+    @extend %social-btn;
+    position: relative;
+    &#fixed-email-btn,
+    &#fixed-phone-btn {
+      margin-top: 7px;
+    }
+    &:hover {
+      & .copy-asset-right {
+        right: 37px;
+      }
+      & .social-logo svg {
+        color: $primary-blue;
+      }
+    }
+    .social-logo {
+      @extend %social-btn;
+      background-color: $primary-white;
+      display: block;
+      position: relative;
+      text-align: center;
+      i::before, svg {
+        @extend %centered;
+        @include transition_base(color);
+        color: $primary-black;
+        font-size: 30px;
+        height: 80%;
+        width: 80%;
+      }
+    }
+  }
+}
+
+/* END social network fixeds */
+
+
+/* Welcome section */
+
+#ctn-main-title {
+  @extend %centered-top;
+  @include media-breakpoint-up(md) {
+    width: 80%;
+  }
+  cursor: default;
+  width: 95%;
+  z-index: 6;
+  &.nojs-improve {
+    @extend %centered-bottom;
+  }
+  &:hover * {
+    letter-spacing: .5px;
+  }
+  * {
+    @include transition_base(letter-spacing, $duration: 3s);
+    @include textshadow_base;
+    color: $primary-white;
+    letter-spacing: 0;
+  }
+  #main-subtitle {
+    @include media-breakpoint-down(sm) {
+      font-size: 1.4rem;      
+    }
+  }
+  #main-title {
+    @include media-breakpoint-down(sm) {
+      font-size: 4rem;      
+    }
+  }
+}
+
+/* Welcome carousel */
+
+#welcome-section {
+  height: 100%;
+  .carousel-item,
+  .carousel-inner,
+  #main-carousel {
+    height: 100%;
+    max-height: 1200px;
+    width: 100%;
+  }
+  .carousel-item {
+    img {
+      left: 50%;
+      min-height: 100%;
+      min-width: 100%;
+      position: relative;
+      transform: translateX(-50%);
+    }
+  }
+  #main-carousel {
+    z-index: 1
+  }
+}
+
+.unsplash-caption {
+  bottom: 5px;
+  color: rgba(240, 240, 240, 1)!important;
+  font-size: 12px;
+  position: absolute;
+  right: 5px;
+  text-shadow: 0 0 2px #000000;
+  * {
+    color: rgba(240, 240, 240, 1)!important;
+  }
+}
+
+/* END welcome carousel */
+
+/* END welcome section */
+
+
+/* Interludes */
+
+.interlude {
+  height: 400px;
+  overflow: hidden;
+  width: 100%;
+  .interlude-background {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    &#interlude-img-background {  
+      @include media-breakpoint-down(md) {
+        background-position: center; /* On small screens the image will be centered (and it will jump when modal open) */
+      }
+      background: {
+        attachment: fixed;
+        color: $primary-white;
+        image: url(https://picsum.photos/1920/1080);
+        position: center; /* left -> Prevents horizontal jumps when a bootstrap modal is open but uncenter the image */
+        repeat: no-repeat;
+        size: cover; /* cover -> Produces jumps event if position:left is set, no cover procudes misalign on IE */
+      }
+    }
+    h1 {
+      @extend %centered;
+      @include textshadow_base;
+      color: $primary-white;
+      font-style: italic!important;
+      text-align: center;
+      z-index: 1;
+    }
+    video {
+      @extend %centered;
+      min-height: 100%;
+      min-width: 100%;
+    }
+  }
+}
+
+/* END interludes */
+
+
+/* Works section */
+
+#works-section {
+  @extend %padding-section;
+  #works-card-carousel,
+  #works-img-carousel {
+    .card {
+      @include transition_base(box-shadow);
+      border: $primary-border;
+      height: auto;
+      .btn {
+        @include transition_base(color);
+        border: unset;
+        font-weight: 600;
+        position: relative; /* For nav_ux */
+      }
+      .card-title {
+        border-bottom: $primary-border;
+      }
+      .footer-row {
+        margin: 0 2rem 2rem 2rem;
+        z-index: 1;
+      }
+      &:hover {
+        box-shadow: 5px 5px 10px rgba($primary-black, .2), -5px 5px 10px rgba($primary-black, .2);
+      }
+    }
+  }
+  #works-card-carousel {
+    @extend %owl-dots-top;
+    .btn {
+      @include nav_ux($primary-black, $primary-white);
+    }
+    .card-img-top {
+      height: 300px;
+      overflow: hidden;
+      padding: 1px;
+      position: relative;
+      width: 100%;
+      img {
+        @extend %centered;
+        min-height: 100%;
+        min-width: 100%;
+        width: auto!important; /* Overrides the owl-carousel width: 100% */
+      }
+    }
+  }
+  #works-img-carousel {
+    @extend %owl-dots-top;
+    .card {
+      overflow: hidden;
+      .btn {
+        @include nav_ux($primary-white, $primary-black);
+      }
+      .card-img {
+        @extend %centered;
+        min-height: 100%;
+        width: auto;
+      }
+      .card-img-overlay {
+        background-color: rgba($primary-black, .4);
+        display: block;
+        color: $primary-white;
+        height: auto;
+        margin: 2rem 2rem 0 2rem;
+        position: relative;
+        .card-title {
+          border-bottom: $primary-border-white;
+        }
+      }
+      .footer-row {
+        background-color: rgba($primary-black, .4)!important;
+        a {
+          margin: 10px 10px 10px auto;
+        }
+      }
+    }
+  }
+}
+
+/* END works section */
+
+
+/* Media section */
+
+#media-section {
+  min-height: 100%;
+  overflow: hidden;
+  padding: {
+    bottom: 0;
+    top: 180px;
+  }
+  position: relative;
+  #media-wrapper,
+  #media-inline-wrapper {
+    position: relative;
+    #video-background-wrapper {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      #video-background {
+        min-height: 100%;
+        min-width: 100%;
+      }
+    }
+    #media-grid,
+    #media-inline {
+      text-align: center;
+      .video-wrapper {
+        /* Width is calculated to show 1 object per line on < xs */
+        $width: 80%;
+        @include media-breakpoint-up(lg) {
+          /* Width is calculated for 3 objects per line */
+          width: calc(100% / 3.6);
+        }
+        cursor: pointer;
+        display: inline-block;
+        height: calc((#{$width} / 16) * 9); /* Height is calculted to show an aspect ratio of 16:9 */
+        margin: 0.7rem;
+        overflow: hidden;
+        position: relative;
+        width: $width;
+        /* Class to youtube specific wrapper, remember add it if a youtube video is embed */
+        &.youtube-wrapper {
+          height: auto;
+        }
+        &:hover > .video-desc {
+          height: 20%;
+        }
+        &:hover > .video-desc span {
+          @extend %centered;
+        }
+        iframe,
+        video {
+          height: 100%;
+          width: 100%;
+        }
+        .video-desc {
+          @include transition_base(height);
+          background-color: rgba($primary-white, .4);
+          color: $primary-black;
+          font-weight: 600;
+          display: block;
+          height: 0;
+          left: 0;
+          line-height: 15%;
+          overflow: hidden;
+          position: absolute;
+          text-align: center;
+          top: 0;
+          width: 100%;
+          span {
+            @extend %centered;
+            @include media-breakpoint-down(sm) {
+              font-size: 12px;
+            }
+            @include transition_base(top);
+            top: -50px;
+            display: block;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+    #media-inline {
+      overflow-y: auto;
+      .video-wrapper {
+        min-width: 400px;
+      }
+    }
+  }
+}
+
+/* END media section */
+
+
+/* Photos section */
+
+#photos-section {
+  @extend %padding-section;
+  min-height: 100%;
+  .appear-elem {
+    filter: blur(10px);
+    &.appeared {
+      filter: blur(0px);
+    }
+  }
+  .row {
+    @extend %growables-row;
+  }
+  #horizontal-gallery {
+    display: block;
+    overflow-y: auto;
+  }
+}
+
+/* END photos section */
+
+/* Last articles section */
+
+#last-articles-section {
+  @extend %padding-section;
+  min-height: 100%;
+  .card {
+    @extend %card-h;
+  }
+  .btn {
+    @extend %nav-ux-btn;
+  }
+  .collapse a.actived {
+    @include nav_ux($primary-black, $primary-white);
+  }
+}
+
+/* END last articles section */
+
+
+/* About me section */
+
+#me-section {
+  @include media-breakpoint-down(md) {
+    background-position: center;
+  }
+  background: {
+    attachment: fixed;
+    image: url('../img/footer-background.jpg');
+    position: left; /* Prevents jump when a bootstrap modal is open */
+    repeat: no-repeat;
+    size: cover;
+  }
+  /* <span>Photo by <a href="https://unsplash.com/@shbabalif?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alif Ngoylung</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span> */
+  color: $primary-white;
+  margin-bottom: 260px;
+  min-height: 100%;
+  padding-top: 220px;
+  position: relative;
+  .container-lg {
+    background-color: rgba($primary-black, .4);
+    margin-bottom: 100px;
+    padding: 2rem 1rem;
+  }
+}
+
+#avatar {
+  @include transition_base((filter, box-shadow));
+  background: {
+    image: url('../img/avatar.jpg');
+    position: center;
+    repeat: no-repeat;
+    size: 100% auto;
+  }
+  /* <span>Photo by <a href="https://unsplash.com/@benjaminsweet?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ben Sweet</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span> */
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  z-index: 2;
+}
+
+/* END about me section */
+
+
+/* Article page */
+/* secondary-fixed-header general class styles the header of this section */
+
+#one-article-section {
+  margin-bottom: 260px;
+  position: relative;
+  z-index: 1;
+  .one-article-body {
+    @extend %secondary-header-margin;
+    font-weight: 600;
+    margin: 100px auto;
+    max-width: 600px;
+    position: relative;
+    text-align: justify;
+    width: 100%;
+    /* Adjust the top separation when js is not enabled */
+    &.nojs-improve {
+      margin-top: 50px;
+    }
+    .one-article-img {
+      height: calc((100% / 16) * 9); /* Height is calculted to show an aspect ratio of 16:9 */
+      margin: 15px 0;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+    .one-article-share {
+      @extend %share-base;
+      @include media-breakpoint-down(sm) {
+        flex-direction: row;
+        left: -10px;
+        top: 0px;
+      }
+      left: -35px;
+      top: 2.5rem;
+    }
+    .one-article-subtitle {
+      font-family: $sans!important;
+      position: relative;
+    }
+  }
+}
+
+/* END article page */
+
+
+/* Work page */
+/* secondary-fixed-header class styles the header */
+
+#one-work-section {
+  margin-bottom: 260px;
+  position: relative;
+  z-index: 1;
+  .list-group {
+    i, svg {
+      font-size: 30px
+    }
+  }
+  .one-work-body {
+    @extend %secondary-header-margin;
+    font-weight: 600;
+    margin: 100px auto;
+    position: relative;
+    text-align: justify;
+    width: 100%;
+    /* Adjust the top separation when js is not enabled */
+    &.nojs-improve {
+      margin-top: 50px;
+    }
+    section {
+      overflow: hidden;
+      padding-top: 30px;
+    }
+    .one-work-img-wrp {
+      overflow: hidden;
+      .one-work-img {
+        height: calc((100% / 16) * 9); /* Height is calculted to show an aspect ratio of 16:9 */
+        min-height: 400px;
+        width: 100%;
+        img {
+          @extend %centered;
+          min-height: 100%;
+          min-width: 100%;
+        }
+      }
+    }
+    .one-work-subtitle {
+      font-family: $sans!important;
+      position: relative;
+    }
+    #one-work-skills {
+      #skills-accordion {
+        .card {
+          border: none;
+          .card-header {
+            padding: 0;
+          }
+          .list-group-item {
+            border: none;
+          }
+        }
+      }
+    }
+    #one-work-gallery {
+      .row {
+        @extend %growables-row;
+      }
+    }
+  }
+}
+
+/* END work page */
+
+
+/* Articles/Blog page */
+
+#articles-header {
+  @include media-breakpoint-up(sm) {
+    top: $nav-height;
+  }
+  @include transition_base((height, top));
+  background-color: rgba($primary-black, 0.2);
+  color: $primary-white;
+  height: 40px;
+  position: fixed;
+  top: $nav-height-sm;
+  width: 100%;
+  z-index: 6;
+  &.sticked {
+    @include transition_base((height, top));
+    h1 {
+      font-size: calc(10px + 1vw);
+    }
+  }
+  h1 {
+    @extend %centered;
+    @include transition_base(font-size);
+    color: $primary-blue;
+    font-size: calc(10px + 1vw);
+    font-style: italic;
+    font-weight: 800;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+  }
+}
+#main-articles {
+  @include media-breakpoint-up(sm) {
+    margin-top: $nav-height + 50px;
+  }
+  background-color: $primary-white;
+  display: inline-block;
+  margin-bottom: 260px;
+  margin-top: $nav-height-sm + 50px;
+  position: relative;
+  width: 100%;
+  z-index: 5;
+  .row {
+    aside {
+      padding-bottom: 50px;
+      &.sticky-top {
+        top: 100px;
+      }
+      #categories {
+        a::before {
+          @include transition_base(opacity);
+          content: inline-svg('<svg width="4" height="4" xmlns="http://www.w3.org/2000/svg"><g><ellipse ry="1" rx="1" id="svg_1" cy="1.75" cx="1.75" stroke-width="1.5" stroke="#103C83" fill="#103C83"/></g></svg>');
+          left: .5rem;
+          opacity: 0;
+          position: absolute;
+          top: 17%;
+          z-index: 1;
+        }
+        a:hover {
+          color: $primary-blue;
+          text-decoration: none;
+          &::before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    section {
+      background-color: none!important;
+      padding-bottom: 50px;
+      .container {
+        // margin: 100px auto;
+        .card {
+          @extend %card-h;
+          @include transition_base(box-shadow);
+          &:hover {
+            box-shadow: 5px 5px 10px rgba($primary-black, .2), -5px 5px 10px rgba($primary-black, .2);
+          }
+          .article-share {
+            @extend %share-base;
+            flex-direction: row;
+            right: 20px;
+            .article-share-btn {
+              display: block;
+              height: 100%;
+              line-height: 1;
+            }
+          }
+          .footer-row {
+            @extend %card-footer-row;
+            position: relative;
+          }
+        }
+      }
+      .pagination {
+        font-weight: 800;
+        .page-link {
+          @extend %nav-ux-btn;
+          @include transition_base(color);
+          &.active {
+            @include nav_ux($primary-black, $primary-white);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* END articles/blog page */
+
+/* Main footer */
+
+.main-footer {
+  background-color: rgba($primary-black, .8);
+  box-shadow: inset 0 1px 4px $primary-black;
+  bottom: 0;
+  height: 260px;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 0;
+  .container-lg {
+    height: 100%;
+    position: relative;
+    > div {
+      height: 33.33%;
+    }
+    .copyright-wrapper {
+      position: relative;
+      .copyright {
+        @extend %centered;
+        background-color: rgba($primary-white, 0.6);
+        font: {
+          family: $serif;
+          style: italic;
+          weight: 600;
+        }
+        padding: 0;
+        width: 100%;
+      }
+    }
+    .ctn-footer-nav {
+      position: relative;
+      text-align: left;
+      width: 100%;
+      .footer-nav {
+        @include media-breakpoint-up(sm) {
+          font-size: 22px;
+        }
+        @extend %centered;
+        display: inline-flex;
+        font: {
+          family: $serif;
+          size: 17px;
+          style: italic;
+          weight: $weight-navs;
+        }
+        width: 100%;
+        .nav-link {
+          color: rgba($primary-white, 0.6);
+          cursor: pointer;
+          padding: 0 5px;
+        }
+      }
+    }
+    .footer-social-row {
+      display: inline-flex;
+      flex-wrap: nowrap;
+      .footer-social-logo {
+        @include media-breakpoint-up(sm) {
+          width: 35px;
+          i, svg {
+            font-size: 30px;
+          }
+        }
+        cursor: pointer;
+        display: block;
+        height: 100%;
+        line-height: 1;
+        margin: 0 5px;
+        overflow: hidden;
+        text-align: center;
+        width: 22px;
+        i, svg  {
+          color: rgba($primary-white, 0.6);
+          // font-size: 20px;
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* END main footer */
+
+/* Loading page */
+
+.loading {
+  background-color: $primary-white;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99;
+  .dots-wrapper {
+    @extend %centered;
+    align-items:flex-start;
+    display: flex;
+    .dot {
+      animation: loading 2s ease-in-out infinite;
+      border-radius: 50%;
+      height: 12px;
+      margin: 5px 7px;
+      width: 12px;
+      &:nth-child(1) {
+        transform: translateY(0);
+      }
+      &:nth-child(2) {
+        animation-delay: .15s;
+      }
+      &:nth-child(3) {
+        animation-delay: .30s;
+      }
+      &:nth-child(4) {
+        animation-delay: .45s;
+      }
+      &:nth-child(5) {
+        animation-delay: .60s;
+      }
+    }
+  }
+}
+
+/* END loading page */
+
+
+/* Scroll top button */
+
+.to-top-btn {
+  @extend %hover-opacity;
+  @extend %social-btn;
+  @include boxshadow_base($color: rgba(60, 60, 60, 1));
+  @include transition_base((opacity, left));
+  background-color: $primary-blue;
+  bottom: 300px;
+  cursor: pointer;
+  position: fixed;
+  left: -50px;
+  z-index: 9;
+  &.shown {
+    left: 0;
+  }
+  &:hover svg {
+    top: 45%;
+  }
+  svg {
+    @extend %centered;
+    @include transition_base(top);
+    color: $primary-white;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/* END scroll top button */
+
+
+/* Growables modal */
+
+/* Certain elements needs individual styles when the modal is open */
+.modal-open {
+  .fixed-social-btn-wrp,
+  .interlude,
+  .to-top-btn.shown,
+  #me-section {
+    margin-right: 17px;
+  }
+  .main-nav,
+  .secondary-nav {
+    padding-right: 17px;
+  }
+  .main-footer {
+    width: calc(100% - 17px);
+  }
+  .one-work-header {
+    left: calc(50% - 8.5px);
+  }
+}
+
+#growables-modal {
+  height: 100%;
+  padding: 0!important;
+  overflow: hidden;
+  width: 100%;
+  .carousel-custom-controls {
+    background-color: rgba($primary-white, .6);
+    margin: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .modal-dialog {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
+    .modal-content {
+      border: 0;
+      img,
+      video {
+        @extend %centered;
+        display: none; /* Will be shown via js */
+      }
+    }
+    #modal-caption {
+      background-color: rgba($primary-black, .4);
+      bottom: 100px;
+      color: $primary-white;
+      left: 0;
+      min-height: 30px;
+      padding: 10px;
+      position: absolute;
+      right: 0;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+  button.close {
+    color: $primary-white;
+    font-size: 6rem;
+    position: fixed;
+    right: 1rem;
+    text-shadow: 0 1px 0 $primary-black;
+    top: 1rem;
+    z-index: 1;
+  }
+}
+
+/* END growable modal */
+
+
+/* No script */
+
+.noscript-alert {
+  background-color: rgba($primary-red, 1);
+  color: $primary-white;
+  bottom: 0;
+  font-weight: 600;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 9999;
+}
+
+/* END no script */
+
+
+/* Animations */
+
+/* Change between texts translating Y axis, is calculated specifically for 3 texts and triggers a fast transition setting a previous step before move it between steps
+  text 1 to text 2 - 25% - forcing fast transition at 20%
+  text 2 to text 3 - 50% - forcing fast transition at 45%
+  text 3 to text 2 - 75% - forcing fast transition at 70%
+  text 2 to text 1 - 100% - forcing fast transition at 95%
+ */
+@include keyframes('swipeY') {
+  0%, 20%, 100% {
+    transform: translateY(0);
+  }
+  25%, 45%, 75%, 95% {
+    transform: translateY(-25%);
+  }
+  50%, 70% {
+    transform: translateY(-50%);
+  }
+  20%, 25%, 45%, 50%, 70%, 75%, 95%, 100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  22.5%, 47.5%, 72.5%, 97.5% {
+    filter: blur(1px);
+    opacity: 0.8;
+  }
+}
+
+/* Oscile up and down fading the background-color */
+@include keyframes('loading') {
+  0% {
+    background-color: lighten($primary-blue, 70%);
+    transform: translateY(25px);
+  }
+  50% {
+    background-color: lighten($primary-blue, 10%);
+    transform: translateY(-25px);
+  }
+  100% {
+    background-color: lighten($primary-blue, 70%);
+    transform: translateY(25px);
+  }
+}
+
+/* Animation to disappear a absolute positioned element */
+@include keyframes('slideup_hide') {
+  from {
+    top: -13px;
+    opacity: 1;
+  }
+  to {
+    top: -15px;
+    opacity: 0;
+  }
+}
+
+/* END animations */

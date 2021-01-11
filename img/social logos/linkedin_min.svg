@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #007bb5;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <title>linkedin_min</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="linkedin_minimal" data-name="linkedin minimal">
+      <g>
+        <path class="cls-1" d="M170.88,385.76H311V838.64H170.88ZM241.6,160c44.88,0,81.6,36.72,81.6,83,0,44.88-36.72,83-81.6,83S160,289.2,160,243s36.72-83,81.6-83"/>
+        <path class="cls-1" d="M400.72,385.76h136V447h1.36c19-36.72,65.28-73.44,133.28-73.44,142.8,0,168.64,93.84,168.64,216.24V838.64H699.92V618.32c0-51.68-1.36-121-72.08-121-72.08,0-84.32,57.12-84.32,117V840H402.08V385.76Z"/>
+      </g>
+      <rect class="cls-2" width="1000" height="1000"/>
+    </g>
+  </g>
+</svg>

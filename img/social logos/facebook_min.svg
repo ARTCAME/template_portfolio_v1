@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #176ae6;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <title>facebook_min</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="facebook_minimal" data-name="facebook minimal">
+      <path class="cls-1" d="M434.66,837.5v-305H325.81V423.78H434.69V323.39c0-101.25,59.78-160.89,150.09-160.89,43.27,0,89.42,10.11,89.42,10.11V282.28l-72.7,0c-49.11,0-58.3,24.36-58.3,58.6v82.92H669L651.27,532.53H543.19v305Z"/>
+      <rect class="cls-2" width="1000" height="1000"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,77 @@
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+/* Box shadow base */
+@mixin boxshadow_base($blur: 2px, $spread: 0, $x: 0, $y: 0, $color: $primary_black, $inset: false) {
+  @if $inset {
+    box-shadow: inset $x $y $blur $spread $color;
+  } @else {
+    box-shadow: $x $y $blur $spread $color;
+  }
+}
+/* Linear gradient base */
+@mixin linear_gradient($color1, $color2) {
+  background: $color1;
+  background: -moz-linear-gradient(90deg, $color1 0%, $color2 100%);
+  background: -webkit-linear-gradient(90deg, $color1 0%, $color2 100%);
+  background: linear-gradient(90deg, $color1 0%, $color2 100%);
+  // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#103c83",endColorstr="#111111",GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$color1}",endColorstr="#{$color2}",GradientType=1);
+}
+
+/* Grows a before element from the bottom to the top to improve the ux */
+@mixin nav_ux($primary-color, $secondary-color) {
+  color: $primary-color;
+  position: relative;
+  white-space: nowrap;
+  z-index: 0;
+  &:hover,
+  &.active {
+    color: $secondary-color;
+  }
+  &::before {
+    @include transition_base((height, opacity), $duration: .15s);
+    background-color: $primary-color;
+    border-bottom: 2px solid $primary-color;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 0;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+  }
+  &.active::before,
+  &.actived::before,
+  &:hover::before {
+    height: 100%;
+    opacity: .3;
+  }
+}
+/* Text shadow base */
+@mixin textshadow_base($color: $primary_black) {
+  text-shadow: 0 0 10px $color;
+}
+/* Transition base */
+@mixin transition_base($property, $delay: 0s, $duration: 0.35s) {
+  transition-duration: $duration;
+  transition-property: $property;
+  transition-delay: $delay;
+  transition-timing-function: ease-in-out; 
+}

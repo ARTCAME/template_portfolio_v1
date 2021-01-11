@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Your awesome description to show on browsers!">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <script src="node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
+
+    <link rel="icon" href="/img/favicon_unb.svg" type="image/svg+xml" >
+
+    <!-- Fonts  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>Article title</title>
+
+    <!-- You can use Open Graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+    <!-- <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />  -->
+    <!-- <meta property="og:type"          content="website" /> -->
+    <!-- <meta property="og:title"         content="Your Website Title" />  -->
+    <!-- <meta property="og:description"   content="Your description" />  -->
+    <!-- <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />  -->
+  </head>
+  <body>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v9.0" nonce="csbNCGsg"></script>
+    
+    <div class="secondary-main-wrapper" id="one-article-main-wrapper">
+      <!-- No script alert -->
+      <noscript class="noscript-alert">
+        This page works better with Javascript enabled
+      </noscript>
+      <!-- Loading page -->
+      <div class="loading">
+        <div class="bars-wrapper dots-wrapper">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+      <!-- Secondary pages main nav -->
+      <div class="ctn-secondary-nav fixed nojs-improve">
+        <nav class="justify-content-left justify-content-sm-center nav mx-0 row row-cols-2 row-cols-sm-5 secondary-nav">
+          <span class="col link-wrp">
+            <a class="nav-link" href="./index.html#works-section">Works</a>
+          </span>
+          <span class="col link-wrp">
+            <a class="nav-link" href="./index.html#photos-section">Photos</a>
+          </span>
+          <span class="col link-wrp">
+            <a class="nav-link" href="./index.html#media-section">Media</a>
+          </span>
+          <span class="col link-wrp">
+            <a class="nav-link" href="./index.html#last-articles-section">Articles</a>
+          </span>
+          <span class="col link-wrp">
+            <a class="nav-link" href="./index.html#me-section">Me</a>
+          </span>
+        </nav>
+      </div>
+      <!-- Social networks and contact fixed nav-->
+      <div class="fixed-asset fixed-social-btn-wrp">
+        <span class="d-block social-network-btns-wrp">
+          <div class="social-btn">
+            <a class="social-logo" href="https://facebook.com/youraccount" target="_blank" title="Open: facebook.com/youraccount">
+              <i class="fab fa-facebook-square"></i>
+            </a>
+            <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="facebook-text" title="Click to copy!">
+              facebook.com/youraccount
+            </span>
+          </div>
+          <div class="social-btn">
+            <a class="social-logo" href="https://instagram.com/youraccount" target="_blank" title="Open: instagram.com/youraccount">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="instagram-text" title="Click to copy!">
+              instagram.com/youraccount
+            </span>
+          </div>
+          <div class="social-btn">
+            <a class="social-logo" href="https://twitter.com/youraccount" target="_blank" title="Open: twitter.com/youraccount">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="twitter-text" title="Click to copy!">
+              twitter.com/youraccount
+            </span>
+          </div>
+          <div class="social-btn">
+            <a class="social-logo" href="https://youtube.com/youraccount" target="_blank" title="Open: youtube.com/youraccount">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="youtube-text" title="Click to copy!">
+              youtube.com/youraccount
+            </span>
+          </div>
+          <div class="social-btn">
+            <a class="social-logo" href="https://linkedin.com/youraccount" target="_blank" title="Open: linkedin.com/youraccount">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="linkedin-text" title="Click to copy!">
+              linkedin.com/youraccount
+            </span>
+          </div>
+        </span>
+        <div class="contact-social-btn social-btn" id="fixed-email-btn">
+          <a class="social-logo" href="mailto:example@example.com" title="Send email to: example@example.com">
+            <i class="far fa-envelope"></i>
+          </a>
+          <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="email-text" title="Click to copy!">
+            example@example.com
+          </span>
+        </div>
+        <div class="contact-social-btn social-btn" id="fixed-phone-btn">
+          <a class="social-logo" href="tel:yourphone" title="Call to: yourphone">
+            <i class="fas fa-phone-square-alt"></i>
+          </a>
+          <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="phone-text" title="Click to copy!">
+            Your phone
+          </span>
+        </div>
+      </div>
+      <!-- Scroll top button -->
+      <div class="to-top-btn" title="Go to page top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+      </div>
+      <!-- Article header -->
+      <div class="nojs-improve one-article-header secondary-fixed-header">
+        <img alt="" class="secondary-fixed-header-img" src="https://picsum.photos/1200/1000">
+        <div class="secondary-fixed-header-titles">
+          <h1 class="secondary-fixed-main-title">Article title</h1>
+          <h3 class="secondary-fixed-main-subtitle">Article long explanational subtitle</h3>
+        </div>
+      </div>
+      <!-- Article main section -->
+      <section id="one-article-section">
+        <div class="container-lg">
+          <div class="nojs-improve one-article-body">
+            <div class="one-article-share">
+              <!-- Is necessary modify the urls to make this share buttons useful! Also, you can add you prefered share buttons -->
+              <!-- YOU MUST CHANGE data-href attribute to the article url -->
+              <div class="one-article-share-btn" data-href="https://developers.facebook.com/docs/plugins/" title="Share on Facebook">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore" target="_blank">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </div>
+              <!-- YOU MUST ADD url attribute with the article url -->
+              <div class="one-article-share-btn" title="Share on Twitter">
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+              <div class="one-article-share-btn" title="Share on Linkedin">
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=yourarticleurl" target="_blank" title="Share on Linkedin">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+              <div class="one-article-share-btn" title="Share on WhatsApp">
+                <a data-action="share/whatsapp/share" href="whatsapp://send?text=Check this article" target="_blank" title="Share on Whatsapp">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+            <div class="no-gutters row row-cols-1">
+              <small class="text-right">John Applesed</small>
+              <small  class="text-right">5th of June 2010</small>
+            </div>
+            <p><span class="text-highlight">Lorem ipsum</span> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+            <p>Expetenda tincidunt in sed, ex partem placerat sea, porro commodo ex eam. His putant aeterno interesset at. Usu ea mundi tincidunt, omnium virtute aliquando ius ex. Ea aperiri sententiae duo. Usu nullam dolorum quaestio ei, sit vidit facilisis ea. Per ne impedit iracundia neglegentur. Consetetur neglegentur eum ut, vis animal legimus inimicus id.</p>
+            <p>His audiam deserunt in, eum ubique voluptatibus te. In reque dicta usu. Ne rebum dissentiet eam, vim omnis deseruisse id. Ullum deleniti vituperata at quo, insolens complectitur te eos, ea pri dico munere propriae. Vel ferri facilis ut, qui paulo ridens praesent ad. Possim alterum qui cu. Accusamus consulatu ius te, cu decore soleat appareat usu.</p>
+            <p>Est ei erat mucius quaeque. Ei his quas phaedrum, efficiantur mediocritatem ne sed, hinc oratio blandit ei sed. Blandit gloriatur eam et. <span class="text-highlight">Brute noluisse per et</span>, verear disputando neglegentur at quo. Sea quem legere ei, unum soluta ne duo. Ludus complectitur quo te, ut vide autem homero pro.</p>
+            <p>Vis id minim dicant sensibus. Pri aliquip conclusionemque ad, ad malis evertitur torquatos his. Has ei solum harum reprimique, id illum saperet tractatos his. Ei omnis soleat antiopam quo. Ad augue inani postulant mel, mel ea qualisque forensibus.</p>
+            <h4 class="one-article-subtitle">Subtitle</h4>
+            <p>Lorem salutandi eu mea, eam in soleat iriure assentior. Tamquam lobortis id qui. Ea sanctus democritum mei, per eu alterum electram adversarium. Ea vix probo dicta iuvaret, posse epicurei suavitate eam an, nam et vidit menandri. Ut his accusata petentium.</p>
+            <p>Meis vocent signiferumque pri et. Facilis corpora recusabo ne quo, eum ne eruditi blandit suscipiantur. Mazim sapientem sed id, sea debet commune iracundia in. Eius falli propriae te usu. In usu nonummy volumus expetenda, sint quando facilisis ei per, delectus constituto sea te.</p>
+            <h5 class="one-article-subtitle d-inline-block text-underlined">Subtitle</h5>
+            <p>Wisi forensibus mnesarchum in cum. Per id impetus abhorreant, his no magna definiebas, inani rationibus in quo. Ut vidisse dolores est, ut quis nominavi mel. Ad pri quod apeirian concludaturque, id timeam iudicabit rationibus pri. Erant putant luptatum ex sit, error euismod ad qui, meliore voluptatum complectitur an vix. Clita persius sed et, vix vidit consulatu complectitur ex. Per nonummy postulant assentior an, mea audiam fabellas deserunt id.</p>
+            <div class="one-article-img">
+              <img alt="" src="https://picsum.photos/1920/1080">
+              <small>Awesome image description</small>
+            </div>
+            <p>Cu nam labores lobortis definiebas, ei aliquyam salutatus persequeris quo, cum eu nemore fierent dissentiunt. Per vero dolor id, vide democritum scribentur eu vim, pri erroribus temporibus ex. <span class="text-underlined">Euismod molestie offendit</span> has no. Quo te semper invidunt quaestio, per vituperatoribus sadipscing ei, partem aliquyam sensibus in cum.</p>
+            <p>Mei eu mollis albucius, ex nisl contentiones vix. Duo persius volutpat at, cu iuvaret epicuri mei. Duo posse pertinacia no, ex dolor contentiones mea. Nec omnium utamur dignissim ne. Mundi lucilius salutandi an sea, ne sea aeque iudico comprehensam. Populo delicatissimi ad pri. Ex vitae accusam vivendum pro.</p>
+          </div>
+        </div>
+      </section>
+      <!-- Article main footer -->
+      <footer class="main-footer">
+        <div class="container-lg d-flex flex-column">
+          <div class="ctn-footer-nav nojs-improve">
+            <nav class="footer-nav justify-content-center nav">
+              <a class="col-auto nav-link" href="./index.html#works-section">Works  | </a>
+              <a class="col-auto nav-link" href="./index.html#photos-section">Photos  | </a>
+              <a class="col-auto nav-link" href="./index.html#media-section">Media  | </a>
+              <a class="col-auto nav-link" href="./index.html#last-articles-section">Articles  | </a>
+              <a class="col-auto nav-link" href="./index.html#me-section">Me</a>
+            </nav>
+          </div>
+          <!-- Footer social nav -->
+          <div class="footer-social-row justify-content-center m-0 no-gutters row">
+            <div class="col col-auto px-2 px-0">
+              <a class="footer-social-logo" href="https://facebook.com/youraccount" target="_blank" title="Open: facebook.com/youraccount">
+                <i class="fab fa-facebook-square"></i>
+              </a>
+            </div>
+            <div class="col col-auto px-2 px-0">
+              <a class="footer-social-logo" href="https://instagram.com/youraccount" target="_blank" title="Open: instagram.com/youraccount">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+            <div class="col col-auto px-2 px-0">
+              <a class="footer-social-logo" href="https://twitter.com/youraccount" target="_blank" title="Open: twitter.com/youraccount">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+            <div class="col col-auto px-2 px-0">
+              <a class="footer-social-logo" href="https://youtube.com/youraccount" target="_blank" title="Open: youtube.com/youraccount">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+            <div class="col col-auto px-2 px-0">
+              <a class="footer-social-logo" href="https://linkedin.com/youraccount" target="_blank" title="Open: linkedin.com/youraccount">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+            <div class="col col-auto px-2 px-0">
+              <a class="footer-social-logo logo-icon" href="mailto:example@example.com" title="Send email to: example@example.com">
+                <i class="far fa-envelope"></i>
+              </a>
+            </div>
+            <div class="col col-auto px-2 px-0">
+              <a class="footer-social-logo logo-icon" href="tel:yourphone" title="Call to: yourphone">
+                <i class="fas fa-phone-square-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="copyright-wrapper">
+            <div class="copyright text-center">John Applesed | With ♥ since 2010</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <!-- Scripts load -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./assets/owlcarousel/dist/owl.carousel.min.js"></script>
+  </body>
+</html>
