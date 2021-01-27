@@ -39,7 +39,7 @@
         This page works better with Javascript enabled
       </noscript>
       <!-- Loading page -->
-      <div class="loading">
+      <div class="loading nojs-improve">
         <div class="bars-wrapper dots-wrapper">
           <div class="dot"></div>
           <div class="dot"></div>
@@ -68,74 +68,17 @@
           </span>
         </nav>
       </div>
-      <!-- Social networks and contact fixed nav-->
-      <div class="fixed-asset fixed-social-btn-wrp">
-        <span class="d-block social-network-btns-wrp">
-          <div class="social-btn">
-            <a class="social-logo" href="https://facebook.com/youraccount" target="_blank" title="Open: facebook.com/youraccount">
-              <i class="fab fa-facebook-square"></i>
-            </a>
-            <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="facebook-text" title="Click to copy!">
-              facebook.com/youraccount
-            </span>
-          </div>
-          <div class="social-btn">
-            <a class="social-logo" href="https://instagram.com/youraccount" target="_blank" title="Open: instagram.com/youraccount">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="instagram-text" title="Click to copy!">
-              instagram.com/youraccount
-            </span>
-          </div>
-          <div class="social-btn">
-            <a class="social-logo" href="https://twitter.com/youraccount" target="_blank" title="Open: twitter.com/youraccount">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="twitter-text" title="Click to copy!">
-              twitter.com/youraccount
-            </span>
-          </div>
-          <div class="social-btn">
-            <a class="social-logo" href="https://youtube.com/youraccount" target="_blank" title="Open: youtube.com/youraccount">
-              <i class="fab fa-youtube"></i>
-            </a>
-            <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="youtube-text" title="Click to copy!">
-              youtube.com/youraccount
-            </span>
-          </div>
-          <div class="social-btn">
-            <a class="social-logo" href="https://linkedin.com/youraccount" target="_blank" title="Open: linkedin.com/youraccount">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="linkedin-text" title="Click to copy!">
-              linkedin.com/youraccount
-            </span>
-          </div>
-        </span>
-        <div class="contact-social-btn social-btn" id="fixed-email-btn">
-          <a class="social-logo" href="mailto:example@example.com" title="Send email to: example@example.com">
-            <i class="far fa-envelope"></i>
-          </a>
-          <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="email-text" title="Click to copy!">
-            example@example.com
-          </span>
-        </div>
-        <div class="contact-social-btn social-btn" id="fixed-phone-btn">
-          <a class="social-logo" href="tel:yourphone" title="Call to: yourphone">
-            <i class="fas fa-phone-square-alt"></i>
-          </a>
-          <span class="copy-asset-right d-inline-block px-2 text-nowrap" id="phone-text" title="Click to copy!">
-            Your phone
-          </span>
-        </div>
-      </div>
       <!-- Scroll top button -->
       <div class="to-top-btn" title="Go to page top" onclick="scrollToTop()">
         <i class="fas fa-arrow-up"></i>
       </div>
+      <!-- Change dark-light button  -->
+      <div class="dark-light-btn nojs-improve" title="Change mode" onclick="modeChange()">
+        <i class="fas fa-adjust"></i>
+      </div>
       <!-- Article header -->
       <div class="nojs-improve one-article-header secondary-fixed-header">
-        <img alt="" class="secondary-fixed-header-img" src="https://picsum.photos/1200/1000">
+        <img alt="" class="secondary-fixed-header-img" src="img/maingallery2.jpg">
         <div class="secondary-fixed-header-titles">
           <h1 class="secondary-fixed-main-title">Article title</h1>
           <h3 class="secondary-fixed-main-subtitle">Article long explanational subtitle</h3>
@@ -185,11 +128,14 @@
             <h5 class="one-article-subtitle d-inline-block text-underlined">Subtitle</h5>
             <p>Wisi forensibus mnesarchum in cum. Per id impetus abhorreant, his no magna definiebas, inani rationibus in quo. Ut vidisse dolores est, ut quis nominavi mel. Ad pri quod apeirian concludaturque, id timeam iudicabit rationibus pri. Erant putant luptatum ex sit, error euismod ad qui, meliore voluptatum complectitur an vix. Clita persius sed et, vix vidit consulatu complectitur ex. Per nonummy postulant assentior an, mea audiam fabellas deserunt id.</p>
             <div class="one-article-img">
-              <img alt="" src="https://picsum.photos/1920/1080">
+              <img alt="" src="img/maingallery2.jpg">
               <small>Awesome image description</small>
             </div>
             <p>Cu nam labores lobortis definiebas, ei aliquyam salutatus persequeris quo, cum eu nemore fierent dissentiunt. Per vero dolor id, vide democritum scribentur eu vim, pri erroribus temporibus ex. <span class="text-underlined">Euismod molestie offendit</span> has no. Quo te semper invidunt quaestio, per vituperatoribus sadipscing ei, partem aliquyam sensibus in cum.</p>
             <p>Mei eu mollis albucius, ex nisl contentiones vix. Duo persius volutpat at, cu iuvaret epicuri mei. Duo posse pertinacia no, ex dolor contentiones mea. Nec omnium utamur dignissim ne. Mundi lucilius salutandi an sea, ne sea aeque iudico comprehensam. Populo delicatissimi ad pri. Ex vitae accusam vivendum pro.</p>
+            <div class="appear-with-js no-gutters row">
+              <a class="btn ml-auto mr-0" href="./articles.html" role="button">Return to articles</a>
+            </div>
           </div>
         </div>
       </section>

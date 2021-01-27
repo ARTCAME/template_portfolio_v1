@@ -21,6 +21,7 @@
  *    · Main footer
  *    · Loading page
  *    · Scroll top button
+ *    · Change dark/light button and dark/light behavior
  *    · Growables modal
  *    · Noscript styles
  *    · Animations
@@ -31,7 +32,7 @@
  *
  * GENERAL TRICKS: 
  * - 'nojs-improve' class will be deleted when js is enabled and provides a method to manage no-js functionalities when the user disables 
- * it, is specially useful on the nav and sticky headers behavior
+ * it, is specially useful on the nav and sticky headers behavior. 
  */
 
 @import './functions.scss';
@@ -40,9 +41,10 @@
 
 /* Global variables */
 
-$primary-blue:                #103C83;
+$primary-blue:                #345283;
 $primary-black:               #111111;
-$primary-gray:                #bdc8da;
+$secondary-black:             #303030;
+$primary-gray:                #505050;
 $primary-red:                 #b94848;
 $primary-white:               #fafafa;
 
@@ -204,14 +206,26 @@ $dot-height:			                  12px;
   transform: translate(-50%, -50%);
 }
 
+%custom-scrollbar {
+  &::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($primary-blue, .4);
+    border-radius: 10px;
+    &:hover {
+      background: rgba($primary-blue, .6);
+    }
+  }
+}
+
 /* Gallery styles for the rows which contains the img */
-%growables-row {
+%growables-icon {
   span {
     cursor: pointer;
     &::before {
       @include transition_base((filter, opacity, transform));
-      @include boxshadow_base($blur: 4px, $color: rgba($primary-black, .6));
-      background-color: rgba($primary-white, .4);
       content: inline_svg('<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrows-angle-expand" fill="#111111" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z"/></svg>');
       cursor: pointer;
       display: block;
@@ -325,8 +339,8 @@ $dot-height:			                  12px;
 
 /* Shared styles between the social buttons */
 %social-btn {
-  height: 40px;
-  width: 40px;
+  height: 25px;
+  width: 25px;
 }
 
 /* END extends */
@@ -360,7 +374,7 @@ h1, h2, h3, h4, h5 {
   font-family: $serif!important;
   font-weight: $weight-titles;
 }
-/* Appear on scroll element */
+/* Appear on scroll element, class added via js */
 .appear-elem {
   opacity: 0;
   transform: translateY(25px);
@@ -564,68 +578,6 @@ h1, h2, h3, h4, h5 {
     background-color: rgba($primary-white, .8);
   }
 }
-#ctn-nav-header {
-  @include media-breakpoint-up(sm) {
-    top: $nav-height;
-  }
-  background-color: rgba($primary-white, .8);
-  bottom: 0px;
-  height: 50px;
-  overflow: hidden;
-  position: fixed;
-  top: $nav-height-sm;
-  transform: translateY(-5px);
-  visibility: hidden;
-  width: 100%;
-  z-index: 6;
-  &.shown {
-    @include transition_base((transform, visibility));
-    transform: translateY(0px);
-    visibility: visible;
-  }
-  * {
-    @include media-breakpoint-down(md) {
-      font-size: 18px;
-    }
-    font: {
-      family: $serif;
-      size: 25px;
-      style: italic;
-      weight: $weight-navs;
-    }
-  }
-  li, ul {
-    -webkit-animation-name: swipeY;
-    -webkit-animation-duration: 25s;
-    -webkit-animation-iteration-count: infinite;
-    animation-name: swipeY;
-    animation-duration: 25s;
-    animation-iteration-count: infinite;
-  }
-  li {
-    display: block;
-    height: 48px;
-    line-height: 50px;
-    margin: 0;
-    text-align: left;
-  }
-  ul {
-    @include media-breakpoint-up(md) {
-      display: inline-block;
-    }
-    display: none;
-    list-style: none;
-  }
-  .main-header-title {
-    @include media-breakpoint-up(md) {
-      text-align: right
-    }
-    display: inline;
-    height: 100%;
-    line-height: 50px;
-    text-align: center;
-  }
-}
 
 /* Shared styles between all the navs */
 .ctn-main-nav,
@@ -696,6 +648,69 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+#ctn-nav-header {
+  @include media-breakpoint-up(sm) {
+    top: $nav-height;
+  }
+  background-color: rgba($primary-white, .8);
+  bottom: 0px;
+  height: 50px;
+  overflow: hidden;
+  position: fixed;
+  top: $nav-height-sm;
+  transform: translateY(-5px);
+  visibility: hidden;
+  width: 100%;
+  z-index: 6;
+  &.shown {
+    @include transition_base((transform, visibility));
+    transform: translateY(0px);
+    visibility: visible;
+  }
+  * {
+    @include media-breakpoint-down(md) {
+      font-size: 18px;
+    }
+    font: {
+      family: $serif;
+      size: 25px;
+      style: italic;
+      weight: $weight-navs;
+    }
+  }
+  li, ul {
+    -webkit-animation-name: swipeY;
+    -webkit-animation-duration: 25s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: swipeY;
+    animation-duration: 25s;
+    animation-iteration-count: infinite;
+  }
+  li {
+    display: block;
+    height: 48px;
+    line-height: 50px;
+    margin: 0;
+    text-align: left;
+  }
+  ul {
+    @include media-breakpoint-up(md) {
+      display: inline-block;
+    }
+    display: none;
+    list-style: none;
+  }
+  .main-header-title {
+    @include media-breakpoint-up(md) {
+      text-align: right
+    }
+    display: inline;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+
 /* Navs position affects to the position of the social elements when are fixed and the width of the wiewport makes overlap these elements */
 #ctn-main-nav.fixed + .fixed-social-btn-wrp,
 .ctn-secondary-nav + .fixed-social-btn-wrp {
@@ -757,7 +772,7 @@ h1, h2, h3, h4, h5 {
   position: fixed;
   right: 0px;
   top: 24.5px;
-  width: 40px;
+  width: 25px;
   z-index: 9;
   &.to-hide {
     right: -45px;
@@ -780,7 +795,7 @@ h1, h2, h3, h4, h5 {
     }
     &:hover {
       & .copy-asset-right {
-        right: 37px;
+        right: 24px;
       }
       & .social-logo svg {
         color: $primary-blue;
@@ -866,17 +881,6 @@ h1, h2, h3, h4, h5 {
   }
 }
 
-.unsplash-caption {
-  bottom: 5px;
-  color: rgba(240, 240, 240, 1)!important;
-  font-size: 12px;
-  position: absolute;
-  right: 5px;
-  text-shadow: 0 0 2px #000000;
-  * {
-    color: rgba(240, 240, 240, 1)!important;
-  }
-}
 
 /* END welcome carousel */
 
@@ -890,21 +894,24 @@ h1, h2, h3, h4, h5 {
   overflow: hidden;
   width: 100%;
   .interlude-background {
+    @include media-breakpoint-down(md) {
+      background-position: center; /* On small screens the image will be centered (and it will jump when modal open) */
+    }
+    background: {
+      attachment: fixed;
+      color: $primary-white;
+      position: center; /* left -> Prevents horizontal jumps when a bootstrap modal is open but uncenter the image */
+      repeat: no-repeat;
+      size: cover; /* cover -> Produces jumps event if position:left is set, no cover procudes misalign on IE */
+    }
     height: 100%;
     position: relative;
     width: 100%;
     &#interlude-img-background {  
-      @include media-breakpoint-down(md) {
-        background-position: center; /* On small screens the image will be centered (and it will jump when modal open) */
-      }
-      background: {
-        attachment: fixed;
-        color: $primary-white;
-        image: url(https://picsum.photos/1920/1080);
-        position: center; /* left -> Prevents horizontal jumps when a bootstrap modal is open but uncenter the image */
-        repeat: no-repeat;
-        size: cover; /* cover -> Produces jumps event if position:left is set, no cover procudes misalign on IE */
-      }
+      background-image: url('/img/interludephoto.jpg');
+    }
+    &#interlude-video-background {  
+      background-image: url('/img/interludevideo.jpg');
     }
     h1 {
       @extend %centered;
@@ -931,6 +938,9 @@ h1, h2, h3, h4, h5 {
   @extend %padding-section;
   #works-card-carousel,
   #works-img-carousel {
+    .owl-stage {
+      padding: 15px 0;
+    }
     .card {
       @include transition_base(box-shadow);
       border: $primary-border;
@@ -1092,7 +1102,9 @@ h1, h2, h3, h4, h5 {
       }
     }
     #media-inline {
-      overflow-y: auto;
+      @extend %custom-scrollbar;
+      overflow-x: auto;
+      overflow-y: hidden;
       .video-wrapper {
         min-width: 400px;
       }
@@ -1106,7 +1118,6 @@ h1, h2, h3, h4, h5 {
 /* Photos section */
 
 #photos-section {
-  @extend %padding-section;
   min-height: 100%;
   .appear-elem {
     filter: blur(10px);
@@ -1115,11 +1126,13 @@ h1, h2, h3, h4, h5 {
     }
   }
   .row {
-    @extend %growables-row;
+    @extend %growables-icon;
   }
   #horizontal-gallery {
+    @extend %custom-scrollbar;
     display: block;
-    overflow-y: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 }
 
@@ -1157,9 +1170,7 @@ h1, h2, h3, h4, h5 {
     repeat: no-repeat;
     size: cover;
   }
-  /* <span>Photo by <a href="https://unsplash.com/@shbabalif?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alif Ngoylung</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span> */
   color: $primary-white;
-  margin-bottom: 260px;
   min-height: 100%;
   padding-top: 220px;
   position: relative;
@@ -1178,7 +1189,6 @@ h1, h2, h3, h4, h5 {
     repeat: no-repeat;
     size: 100% auto;
   }
-  /* <span>Photo by <a href="https://unsplash.com/@benjaminsweet?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ben Sweet</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span> */
   border-radius: 50%;
   height: 250px;
   width: 250px;
@@ -1192,9 +1202,11 @@ h1, h2, h3, h4, h5 {
 /* secondary-fixed-header general class styles the header of this section */
 
 #one-article-section {
-  margin-bottom: 260px;
   position: relative;
   z-index: 1;
+  .btn {
+    @extend %nav-ux-btn;
+  }
   .one-article-body {
     @extend %secondary-header-margin;
     font-weight: 600;
@@ -1239,7 +1251,6 @@ h1, h2, h3, h4, h5 {
 /* secondary-fixed-header class styles the header */
 
 #one-work-section {
-  margin-bottom: 260px;
   position: relative;
   z-index: 1;
   .list-group {
@@ -1294,7 +1305,7 @@ h1, h2, h3, h4, h5 {
     }
     #one-work-gallery {
       .row {
-        @extend %growables-row;
+        @extend %growables-icon;
       }
     }
   }
@@ -1341,7 +1352,6 @@ h1, h2, h3, h4, h5 {
   }
   background-color: $primary-white;
   display: inline-block;
-  margin-bottom: 260px;
   margin-top: $nav-height-sm + 50px;
   position: relative;
   width: 100%;
@@ -1419,10 +1429,7 @@ h1, h2, h3, h4, h5 {
 .main-footer {
   background-color: rgba($primary-black, .8);
   box-shadow: inset 0 1px 4px $primary-black;
-  bottom: 0;
   height: 260px;
-  left: 0;
-  position: fixed;
   text-align: center;
   width: 100%;
   z-index: 0;
@@ -1475,9 +1482,9 @@ h1, h2, h3, h4, h5 {
       flex-wrap: nowrap;
       .footer-social-logo {
         @include media-breakpoint-up(sm) {
-          width: 35px;
+          width: 25px;
           i, svg {
-            font-size: 30px;
+            font-size: 20px;
           }
         }
         cursor: pointer;
@@ -1511,6 +1518,9 @@ h1, h2, h3, h4, h5 {
   right: 0;
   top: 0;
   z-index: 99;
+  &.nojs-improve {
+    display: none;
+  }
   .dots-wrapper {
     @extend %centered;
     align-items:flex-start;
@@ -1566,12 +1576,103 @@ h1, h2, h3, h4, h5 {
     @extend %centered;
     @include transition_base(top);
     color: $primary-white;
-    height: 100%;
-    width: 100%;
   }
 }
 
 /* END scroll top button */
+
+
+/* Change dark/light button and dark/light behavior */
+
+/* General styles for the involved elements which has to be lighten or darken */
+.dark {
+  background-color: $secondary-black;
+  * :not(.ctn-main-nav):not(#ctn-nav-header) {
+    // transition: .35s ease-in-out;
+  }
+  section,
+  #main-articles,
+  #one-work-skills .card,
+  #one-work-skills .card-header a {
+    background-color: $secondary-black;
+  }
+  #main-articles aside *:not(.form-control) {
+    color: $primary-white!important;
+    background-color: $secondary-black;
+  }
+  .card:not(.skills-card) {
+    background-color: $primary-gray;
+    border: $primary-border-white!important;
+    color: $primary-white;
+    .card-title {
+      border-bottom: $primary-border-white!important;
+      text-shadow: none!important;
+    }
+  }
+  .card,
+  #last-articles-section,
+  #one-article-section,
+  #works-card-carousel {
+    .btn {
+      @include nav_ux($primary-white!important, $primary-black!important);
+    }
+  }
+  .card,
+  #one-article-section {
+    color: $primary-white;
+    i, svg {
+      color: $primary-white!important;
+    }
+  }
+  .ctn-main-nav {
+    &.fixed {
+      background-color: rgba($secondary-black, .8);
+    }
+    &.negative {
+      .nav-link {
+        @include nav_ux($primary-white!important, $primary-black!important);
+        text-shadow: none!important;
+      }
+    }
+  }
+  .dark-light-btn {
+    background-color: $primary-white;
+    svg {
+      color: $primary-black;
+    }
+  }
+  #articles-header h1,
+  #one-work-section {
+    color: $primary-white;
+  }
+  #ctn-nav-header {
+    background-color: rgba($secondary-black, .8);
+    color: $primary-white;
+  }
+}
+
+/* Button styles */
+.dark-light-btn {
+  @extend %hover-opacity;
+  @extend %social-btn;
+  @include boxshadow_base($color: rgba(60, 60, 60, 1));
+  @include transition_base((opacity, left));
+  background-color: $primary-black;
+  bottom: 200px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 9;
+  &.nojs-improve {
+    display: none;
+  }
+  svg {
+    @extend %centered;
+    @include transition_base(top);
+    color: $primary-white;
+  }
+}
+
+/* END change dark/light button and dark/light behavior */
 
 
 /* Growables modal */
@@ -1585,7 +1686,8 @@ h1, h2, h3, h4, h5 {
     margin-right: 17px;
   }
   .main-nav,
-  .secondary-nav {
+  .secondary-nav,
+  #ctn-nav-header {
     padding-right: 17px;
   }
   .main-footer {
@@ -1614,10 +1716,13 @@ h1, h2, h3, h4, h5 {
     overflow: hidden;
     .modal-content {
       border: 0;
+      max-height: 100%;
+      position: unset;
       img,
       video {
         @extend %centered;
         display: none; /* Will be shown via js */
+        max-height: 100%;
       }
     }
     #modal-caption {

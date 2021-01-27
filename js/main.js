@@ -4,6 +4,7 @@
  *  - NO JAVASCRIPT: if no javascript is enabled on this section will be deleted some classes that apply styles when no js is present
  *  - MAIN NAV BEHAVIOR: behavior of the principal top nav on index.html
  *  - SCROLL TO TOP BUTTON BEHAVIOR: scroll to top button present on every page, hided by default and showed by a certain amount of scroll Y axis
+ *  - CHANGE DARK/LIGHT MODE: every page has a button to change between dark and light mode
  *  - FIXED HEADERS: behavior of the fixed headers on the articles, one_work and one_article pages
  *  - APPEAR ELEMENTS BEHAVIOR: certain elements will appear following this functions on scroll
  *  - WORKS CAROUSEL: behavior of the works-section carousel of cards
@@ -46,7 +47,7 @@ $(function() {
   });
 });
 
-
+/* UNCOMMENT TO ALLOW THIS FUNCTIONALITY */
 /**
  * Active the listeners to play/pause video elements on hover
  * NOTE: you must change the class video-wrapper to youtube-wrapper if a youtube video is included to disable this function on the youtube videos
@@ -54,10 +55,10 @@ $(function() {
 $('.video-wrapper:not(.youtube-wrapper)').each(function() {
   $(this).on({
     'mouseenter': function(e) {
-      $(this).children('.grid-video')[0].play()
+      // $(this).children('.grid-video')[0].play()
     }, 
     'mouseleave': function(e) {
-      $(this).children('.grid-video')[0].pause()
+      // $(this).children('.grid-video')[0].pause()
     }
   })
 });
@@ -160,6 +161,18 @@ function toggleScrollTopBtn() {
 }
 
 /* END SCROLL TO TOP BUTTON BEHAVIOR */
+
+/* CHANGE DARK/LIGHT MODE */
+
+function modeChange() {
+  if ($('.dark').length) {
+    $('.dark').removeClass('dark');
+  } else {
+    $('body').addClass('dark');
+  }
+}
+
+/* END CHANGE DARK/LIGHT MODE */
 
 
 /* FIXED HEADERS */

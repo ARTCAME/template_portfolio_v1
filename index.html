@@ -37,7 +37,7 @@
       This page works better with Javascript enabled
     </noscript>
     <!-- Loading page -->
-    <div class="loading">
+    <div class="loading nojs-improve">
       <div class="bars-wrapper dots-wrapper">
         <div class="dot"></div>
         <div class="dot"></div>
@@ -67,7 +67,7 @@
       </nav>
     </div>
     <!-- Main header shown under the main nav -->
-    <div class="row nojs-improve text-center" id="ctn-nav-header">
+    <div class="mx-0 nojs-improve row text-center" id="ctn-nav-header">
       <p class="col active main-header-title">John Applesed</p>
       <ul class="col">
         <li>Illustrator artist</li>
@@ -75,8 +75,8 @@
         <li>Inspirational photographer</li>
       </ul>
     </div>
-    <!-- Social networks nav-->
-    <div class="fixed-asset fixed-social-btn-wrp">
+    <!-- Social networks nav -->
+    <!-- <div class="fixed-asset fixed-social-btn-wrp">
       <span class="d-block social-network-btns-wrp">
         <div class="social-btn">
           <a class="social-logo" href="https://facebook.com/youraccount" target="_blank" title="Open: facebook.com/youraccount">
@@ -135,28 +135,33 @@
           Your phone
         </span>
       </div>
-    </div>
+    </div> -->
     <!-- Scroll top button -->
     <div class="to-top-btn" title="Go to page top" onclick="scrollToTop()">
       <i class="fas fa-arrow-up"></i>
+    </div>
+    <!-- Change dark-light button  -->
+    <div class="dark-light-btn nojs-improve" title="Change mode" onclick="modeChange()">
+      <i class="fas fa-adjust"></i>
     </div>
     <!-- Welcome section -->
     <section id="welcome-section">
       <!-- Welcome carousel -->
       <!-- This carousel ocupes the entire viewport. Feel free to add/delete items to it -->
+      <!-- Minimum image quality recommended 1920x1080-->
       <div id="main-carousel" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img alt="Carousel 1" class="d-block responsive" loading="lazy" src="https://picsum.photos/1920/1080">
+            <img alt="Carousel 1" class="d-block responsive" loading="lazy" src="img/maingallery1.jpg">
           </div>
           <div class="carousel-item">
-            <img alt="Carousel 2" class="d-block responsive" loading="lazy" src="https://picsum.photos/1200/900">
+            <img alt="Carousel 2" class="d-block responsive" loading="lazy" src="img/maingallery2.jpg">
           </div>
           <div class="carousel-item">
-            <img alt="Carousel 3" class="d-block responsive" loading="lazy" src="https://picsum.photos/2400/1800">
+            <img alt="Carousel 3" class="d-block responsive" loading="lazy" src="img/maingallery3.jpg">
           </div>
           <div class="carousel-item">
-            <img alt="Carousel 4" class="d-block responsive" loading="lazy" src="https://picsum.photos/1020/700">
+            <img alt="Carousel 4" class="d-block responsive" loading="lazy" src="img/maingallery4.jpg">
           </div>
         </div>
         <a class="carousel-control-prev" href="#main-carousel" role="button" data-slide="prev">
@@ -178,12 +183,13 @@
     <!-- Works section -->
     <section id="works-section">
       <!-- Works carousel image top -->
-      <div class="container-fluid owl-carousel owl-theme owl-loaded" id="works-card-carousel">
+      <!-- Minimum image quality recommended 640x427-->
+      <!-- <div class="container-fluid owl-carousel owl-theme owl-loaded" id="works-card-carousel">
         <div class="owl-stage-outer">
           <div class="owl-stage">
             <div class="card owl-item">
               <div class="card-img-top">
-                <img alt="" class="responsive" loading="lazy" src="https://picsum.photos/640/360">
+                <img alt="" class="responsive" loading="lazy" src="img/works1.jpg">
               </div>
               <div class="card-body">
                 <h5 class="card-title d-inline-block font-italic text-highlight">Lorem ipsum 1</h5>
@@ -197,7 +203,7 @@
             </div>
             <div class="card owl-item">
               <div class="card-img-top">
-                <img alt="" class="responsive" loading="lazy" src="https://picsum.photos/640/360">
+                <img alt="" class="responsive" loading="lazy" src="img/works2.jpg">
               </div>
               <div class="card-body">
                 <h5 class="card-title d-inline-block font-italic text-highlight">Lorem ipsum 2</h5>
@@ -211,7 +217,7 @@
             </div>
             <div class="card owl-item">
               <div class="card-img-top">
-                <img alt="" class="responsive" loading="lazy" src="https://picsum.photos/640/360">
+                <img alt="" class="responsive" loading="lazy" src="img/works3.jpg">
               </div>
               <div class="card-body">
                 <h5 class="card-title d-inline-block font-italic text-highlight">Lorem ipsum 3</h5>
@@ -225,7 +231,7 @@
             </div>
             <div class="card owl-item">
               <div class="card-img-top">
-                <img alt="" class="responsive" loading="lazy" src="https://picsum.photos/640/360">
+                <img alt="" class="responsive" loading="lazy" src="img/works4.jpg">
               </div>
               <div class="card-body">
                 <h5 class="card-title d-inline-block font-italic text-highlight">Lorem ipsum 4</h5>
@@ -239,7 +245,7 @@
             </div>
             <div class="card owl-item">
               <div class="card-img-top">
-                <img alt="" class="responsive" loading="lazy" src="https://picsum.photos/640/360">
+                <img alt="" class="responsive" loading="lazy" src="img/works5.jpg">
               </div>
               <div class="card-body">
                 <h5 class="card-title d-inline-block font-italic text-highlight">Lorem ipsum 5</h5>
@@ -253,7 +259,7 @@
             </div>
             <div class="card owl-item">
               <div class="card-img-top">
-                <img alt="" class="responsive" loading="lazy" src="https://picsum.photos/640/360">
+                <img alt="" class="responsive" loading="lazy" src="img/works6.jpg">
               </div>
               <div class="card-body">
                 <h5 class="card-title d-inline-block font-italic text-highlight">Lorem ipsum 6</h5>
@@ -267,13 +273,15 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Works carousel image overlay -->
+      <!-- YOU MIGHT CHOOSE THE ABOVE OR THE BELOW -->
+      <!-- Minimum image quality recommended 1920x1080-->
       <div class="container-fluid owl-carousel owl-theme owl-loaded" id="works-img-carousel">
         <div class="owl-stage-outer">
           <div class="owl-stage">
             <div class="card owl-item">
-              <img alt="" class="card-img responsive" loading="lazy" src="https://picsum.photos/640/360">
+              <img alt="" class="card-img responsive" loading="lazy" src="img/works1.jpg">
               <div class="card-img-overlay">
                 <h5 class="card-title d-inline-block font-italic text-highlight">Lorem ipsum 1</h5>
                 <p class="card-text">
@@ -285,7 +293,7 @@
               </div>
             </div>
             <div class="card owl-item">
-              <img alt="" class="card-img responsive" loading="lazy" src="https://picsum.photos/640/360">
+              <img alt="" class="card-img responsive" loading="lazy" src="img/works2.jpg">
               <div class="card-img-overlay">
                 <h5 class="card-title d-inline-block font-italic text-highlight">Lorem ipsum 2</h5>
                 <p class="card-text">
@@ -299,7 +307,7 @@
               </div>
             </div>
             <div class="card owl-item">
-              <img alt="" class="card-img responsive" loading="lazy" src="https://picsum.photos/640/360">
+              <img alt="" class="card-img responsive" loading="lazy" src="img/works3.jpg">
               <div class="card-img-overlay">
                 <h5 class="card-title d-inline-block font-italic text-highlight">Lorem ipsum 3</h5>
                 <p class="card-text">
@@ -311,7 +319,7 @@
               </div>
             </div>
             <div class="card owl-item">
-              <img alt="" class="card-img responsive" loading="lazy" src="https://picsum.photos/640/360">
+              <img alt="" class="card-img responsive" loading="lazy" src="img/works4.jpg">
               <div class="card-img-overlay">
                 <h5 class="card-title d-inline-block font-italic text-highlight">Lorem ipsum 4</h5>
                 <p class="card-text">
@@ -323,7 +331,7 @@
               </div>
             </div>
             <div class="card owl-item">
-              <img alt="" class="card-img responsive" loading="lazy" src="https://picsum.photos/640/360">
+              <img alt="" class="card-img responsive" loading="lazy" src="img/works5.jpg">
               <div class="card-img-overlay">
                 <h5 class="card-title d-inline-block font-italic text-highlight">Lorem ipsum 5</h5>
                 <p class="card-text">
@@ -335,7 +343,7 @@
               </div>
             </div>
             <div class="card owl-item">
-              <img alt="" class="card-img responsive" loading="lazy" src="https://picsum.photos/640/360">
+              <img alt="" class="card-img responsive" loading="lazy" src="img/works6.jpg">
               <div class="card-img-overlay">
                 <h5 class="card-title d-inline-block font-italic text-highlight">Lorem ipsum 6</h5>
                 <p class="card-text">
@@ -353,347 +361,313 @@
         </div>
       </div>
     </section>
-    <!-- Interlude inspirational image -->
-    <section class="interlude" id="interlude-img">
-      <div class="interlude-background" id="interlude-img-background">
-        <h1 class="interlude-title">Inspirational photographer</h1>
-        <!-- Will be setted on the interlude-img-background -->
-        <!-- <img loading="lazy" src="https://picsum.photos/1920/1080" title="Interlude awesome image"> -->
-      </div>
-    </section>
     <!-- Photos section -->
     <section id="photos-section">
+      <!-- Interlude inspirational image -->
+      <!-- Minimum image quality recommended 1920x1080-->
+      <section class="interlude" id="interlude-img">
+        <div class="interlude-background" id="interlude-img-background">
+          <h1 class="appear-with-js interlude-title">Inspirational photographer</h1>
+        </div>
+      </section>
       <!-- You can add horizonal elements but you might prefer add new rows with more elements -->
       <!-- The title of the images are its description on the modal's header, it's optional -->
       <!-- These elements are scaled on click to show its details. To improve the network performance you should show a low quality images on this grid and show a better quality version when they grow, see growOnModal() function on main.js -->
       <!-- Adding 'no-shadow' class to an img tag will be useful to delete the shadow of no rect images -->
       <!-- Add the 'data-img' attr to allow the carousel navigation -->
       <!-- No scroll gallery -->
-      <div class="appear-with-js justify-content-center no-gutters row">
+      <!-- Minimum image quality recommended 300x300-->
+      <!-- <div class="appear-with-js justify-content-center no-gutters row">
         <span class="col-auto growable">
-          <img data-img="1" loading="lazy" src="https://picsum.photos/1920/1080" title="Awesome image caption 1">
+          <img data-img="1" loading="lazy" src="img/gallery1.jpg" title="Awesome image caption 1">
         </span>
         <span class="col-auto growable">
-          <img data-img="2" loading="lazy" src="https://picsum.photos/300/300" title="Awesome image caption 2">
+          <img data-img="2" loading="lazy" src="img/gallery2.jpg" title="Awesome image caption 2">
         </span>
         <span class="col-auto growable">
-          <img data-img="3" loading="lazy" src="https://picsum.photos/300/300" title="Awesome image caption 3">
+          <img data-img="3" loading="lazy" src="img/gallery3.jpg" title="Awesome image caption 3">
         </span>
         <span class="col-auto growable">
-          <img data-img="4" loading="lazy" src="https://picsum.photos/300/400" title="Awesome image caption 4">
-        </span>
-      </div>
-      <div class="appear-with-js justify-content-center no-gutters row">
-        <span class="col-auto growable">
-          <img data-img="5" loading="lazy" src="https://picsum.photos/500/500" title="Awesome image caption 5">
-        </span>
-        <span class="col-auto growable">
-          <img data-img="6" loading="lazy" src="https://picsum.photos/200/600" title="Awesome image caption 6">
-        </span>
-        <span class="col-auto growable">
-          <img data-img="7" loading="lazy" src="https://picsum.photos/500/300" title="Awesome image caption 7">
-        </span>
-        <span class="col-auto growable">
-          <img data-img="8" loading="lazy" src="https://picsum.photos/300/500" title="Awesome image caption 8">
-        </span>
-        <span class="col-auto growable">
-          <img data-img="9" loading="lazy" src="https://picsum.photos/500/600" title="Awesome image caption 9">
-        </span>
-        <span class="col-auto growable">
-          <img data-img="10" loading="lazy" src="https://picsum.photos/500/400" title="Awesome image caption 10">
+          <img data-img="4" loading="lazy" src="img/gallery4.jpg" title="Awesome image caption 4">
         </span>
       </div>
       <div class="appear-with-js justify-content-center no-gutters row">
         <span class="col-auto growable">
-          <img data-img="11" loading="lazy" src="https://picsum.photos/300/450" title="Awesome image caption 11">
+          <img data-img="5" loading="lazy" src="img/gallery5.jpg" title="Awesome image caption 5">
         </span>
         <span class="col-auto growable">
-          <img data-img="12" loading="lazy" src="https://picsum.photos/800/400" title="Awesome image caption 12">
+          <img data-img="6" loading="lazy" src="img/gallery6.jpg" title="Awesome image caption 6">
         </span>
         <span class="col-auto growable">
-          <img data-img="13" loading="lazy" src="https://picsum.photos/250/600" title="Awesome image caption 13">
+          <img data-img="7" loading="lazy" src="img/gallery7.jpg" title="Awesome image caption 7">
         </span>
         <span class="col-auto growable">
-          <img data-img="14" loading="lazy" src="https://picsum.photos/600/300" title="Awesome image caption 14">
+          <img data-img="8" loading="lazy" src="img/gallery8.jpg" title="Awesome image caption 8">
+        </span>
+        <span class="col-auto growable">
+          <img data-img="9" loading="lazy" src="img/gallery9.jpg" title="Awesome image caption 9">
+        </span>
+        <span class="col-auto growable">
+          <img data-img="10" loading="lazy" src="img/gallery10.jpg" title="Awesome image caption 10">
         </span>
       </div>
-      <br><br><br>
+      <div class="appear-with-js justify-content-center no-gutters row">
+        <span class="col-auto growable">
+          <img data-img="11" loading="lazy" src="img/gallery11.jpg" title="Awesome image caption 11">
+        </span>
+        <span class="col-auto growable">
+          <img data-img="12" loading="lazy" src="img/gallery12.jpg" title="Awesome image caption 12">
+        </span>
+        <span class="col-auto growable">
+          <img data-img="13" loading="lazy" src="img/gallery13.jpg" title="Awesome image caption 13">
+        </span>
+        <span class="col-auto growable">
+          <img data-img="14" loading="lazy" src="img/gallery14.jpg" title="Awesome image caption 14">
+        </span>
+      </div> -->
       <!-- Horizontal gallery -->
+      <!-- YOU MIGHT CHOOSE THE ABOVE OR THE BELOW -->
+      <!-- Minimum image quality recommended 300x300-->
       <span class="" id="horizontal-gallery">
         <div class="appear-with-js flex-nowrap no-gutters row">
           <span class="col-auto growable">
-            <img data-img="1" loading="lazy" src="https://picsum.photos/1920/1080" title="Awesome image caption 1">
+            <img data-img="1" loading="lazy" src="img/gallery1.jpg" title="Awesome image caption 1">
           </span>
           <span class="col-auto growable">
-            <img data-img="2" loading="lazy" src="https://picsum.photos/300/300" title="Awesome image caption 2">
+            <img data-img="2" loading="lazy" src="img/gallery2.jpg" title="Awesome image caption 2">
           </span>
           <span class="col-auto growable">
-            <img data-img="3" loading="lazy" src="https://picsum.photos/300/300" title="Awesome image caption 3">
+            <img data-img="3" loading="lazy" src="img/gallery3.jpg" title="Awesome image caption 3">
           </span>
           <span class="col-auto growable">
-            <img data-img="4" loading="lazy" src="https://picsum.photos/300/400" title="Awesome image caption 4">
+            <img data-img="4" loading="lazy" src="img/gallery4.jpg" title="Awesome image caption 4">
           </span>
           <span class="col-auto growable">
-            <img data-img="5" loading="lazy" src="https://picsum.photos/500/500" title="Awesome image caption 5">
+            <img data-img="5" loading="lazy" src="img/gallery5.jpg" title="Awesome image caption 5">
           </span>
           <span class="col-auto growable">
-            <img data-img="6" loading="lazy" src="https://picsum.photos/200/600" title="Awesome image caption 6">
+            <img data-img="6" loading="lazy" src="img/gallery6.jpg" title="Awesome image caption 6">
           </span>
           <span class="col-auto growable">
-            <img data-img="7" loading="lazy" src="https://picsum.photos/500/300" title="Awesome image caption 7">
+            <img data-img="7" loading="lazy" src="img/gallery7.jpg" title="Awesome image caption 7">
           </span>
           <span class="col-auto growable">
-            <img data-img="8" loading="lazy" src="https://picsum.photos/300/500" title="Awesome image caption 8">
+            <img data-img="8" loading="lazy" src="img/gallery8.jpg" title="Awesome image caption 8">
           </span>
           <span class="col-auto growable">
-            <img data-img="9" loading="lazy" src="https://picsum.photos/500/600" title="Awesome image caption 9">
+            <img data-img="9" loading="lazy" src="img/gallery9.jpg" title="Awesome image caption 9">
           </span>
           <span class="col-auto growable">
-            <img data-img="10" loading="lazy" src="https://picsum.photos/500/400" title="Awesome image caption 10">
-          </span>
-        </div>
-        <div class="appear-with-js flex-nowrap no-gutters row">
-          <span class="col-auto growable">
-            <img data-img="11" loading="lazy" src="https://picsum.photos/300/450" title="Awesome image caption 11">
-          </span>
-          <span class="col-auto growable">
-            <img data-img="12" loading="lazy" src="https://picsum.photos/800/400" title="Awesome image caption 12">
-          </span>
-          <span class="col-auto growable">
-            <img data-img="13" loading="lazy" src="https://picsum.photos/250/600" title="Awesome image caption 13">
-          </span>
-          <span class="col-auto growable">
-            <img data-img="14" loading="lazy" src="https://picsum.photos/200/300" title="Awesome image caption 14">
-          </span>
-          <span class="col-auto growable">
-            <img data-img="14" loading="lazy" src="https://picsum.photos/100/600" title="Awesome image caption 15">
-          </span>
-          <span class="col-auto growable">
-            <img data-img="14" loading="lazy" src="https://picsum.photos/100/300" title="Awesome image caption 16">
-          </span>
-          <span class="col-auto growable">
-            <img data-img="14" loading="lazy" src="https://picsum.photos/600/900" title="Awesome image caption 17">
-          </span>
-          <span class="col-auto growable">
-            <img data-img="14" loading="lazy" src="https://picsum.photos/300/600" title="Awesome image caption 18">
-          </span>
-          <span class="col-auto growable">
-            <img data-img="14" loading="lazy" src="https://picsum.photos/500/800" title="Awesome image caption 19">
-          </span>
-          <span class="col-auto growable">
-            <img data-img="14" loading="lazy" src="https://picsum.photos/800/300" title="Awesome image caption 20">
-          </span>
-          <span class="col-auto growable">
-            <img data-img="14" loading="lazy" src="https://picsum.photos/600/300" title="Awesome image caption 21">
-          </span>
-          <span class="col-auto growable">
-            <img data-img="14" loading="lazy" src="https://picsum.photos/600/300" title="Awesome image caption 22">
-          </span>
-          <span class="col-auto growable">
-            <img data-img="14" loading="lazy" src="https://picsum.photos/600/300" title="Awesome image caption 23">
+            <img data-img="10" loading="lazy" src="img/gallery10.jpg" title="Awesome image caption 10">
           </span>
         </div>
         <div class="appear-with-js flex-nowrap no-gutters row">
           <span class="col-auto growable">
-            <img data-img="1" loading="lazy" src="https://picsum.photos/1920/1080" title="Awesome image caption 24">
+            <img data-img="11" loading="lazy" src="img/gallery11.jpg" title="Awesome image caption 11">
           </span>
           <span class="col-auto growable">
-            <img data-img="2" loading="lazy" src="https://picsum.photos/300/300" title="Awesome image caption 25">
+            <img data-img="12" loading="lazy" src="img/gallery12.jpg" title="Awesome image caption 12">
           </span>
           <span class="col-auto growable">
-            <img data-img="3" loading="lazy" src="https://picsum.photos/300/300" title="Awesome image caption 26">
+            <img data-img="13" loading="lazy" src="img/gallery13.jpg" title="Awesome image caption 13">
           </span>
           <span class="col-auto growable">
-            <img data-img="4" loading="lazy" src="https://picsum.photos/300/400" title="Awesome image caption 27">
+            <img data-img="14" loading="lazy" src="img/gallery14.jpg" title="Awesome image caption 14">
           </span>
           <span class="col-auto growable">
-            <img data-img="5" loading="lazy" src="https://picsum.photos/500/500" title="Awesome image caption 28">
+            <img data-img="15" loading="lazy" src="img/gallery1.jpg" title="Awesome image caption 15">
           </span>
           <span class="col-auto growable">
-            <img data-img="6" loading="lazy" src="https://picsum.photos/200/600" title="Awesome image caption 29">
+            <img data-img="16" loading="lazy" src="img/gallery2.jpg" title="Awesome image caption 16">
           </span>
           <span class="col-auto growable">
-            <img data-img="7" loading="lazy" src="https://picsum.photos/500/300" title="Awesome image caption 30">
+            <img data-img="17" loading="lazy" src="img/gallery3.jpg" title="Awesome image caption 17">
           </span>
           <span class="col-auto growable">
-            <img data-img="8" loading="lazy" src="https://picsum.photos/300/500" title="Awesome image caption 31">
+            <img data-img="18" loading="lazy" src="img/gallery4.jpg" title="Awesome image caption 18">
           </span>
           <span class="col-auto growable">
-            <img data-img="9" loading="lazy" src="https://picsum.photos/500/600" title="Awesome image caption 32">
+            <img data-img="19" loading="lazy" src="img/gallery5.jpg" title="Awesome image caption 19">
+          </span>
+        </div>
+        <div class="appear-with-js flex-nowrap mb-1 no-gutters row">
+          <span class="col-auto growable">
+            <img data-img="20" loading="lazy" src="img/gallery6.jpg" title="Awesome image caption 20">
           </span>
           <span class="col-auto growable">
-            <img data-img="10" loading="lazy" src="https://picsum.photos/500/400" title="Awesome image caption 33">
+            <img data-img="21" loading="lazy" src="img/gallery7.jpg" title="Awesome image caption 21">
+          </span>
+          <span class="col-auto growable">
+            <img data-img="22" loading="lazy" src="img/gallery8.jpg" title="Awesome image caption 22">
+          </span>
+          <span class="col-auto growable">
+            <img data-img="23" loading="lazy" src="img/gallery9.jpg" title="Awesome image caption 23">
+          </span>
+          <span class="col-auto growable">
+            <img data-img="24" loading="lazy" src="img/gallery10.jpg" title="Awesome image caption 24">
+          </span>
+          <span class="col-auto growable">
+            <img data-img="25" loading="lazy" src="img/gallery11.jpg" title="Awesome image caption 25">
+          </span>
+          <span class="col-auto growable">
+            <img data-img="26" loading="lazy" src="img/gallery12.jpg" title="Awesome image caption 26">
+          </span>
+          <span class="col-auto growable">
+            <img data-img="27" loading="lazy" src="img/gallery13.jpg" title="Awesome image caption 27">
+          </span>
+          <span class="col-auto growable">
+            <img data-img="28" loading="lazy" src="img/gallery14.jpg" title="Awesome image caption 28">
           </span>
         </div>
       </span>
     </section>
-    <!-- Interlude inspirational video -->
-    <section class="interlude" id="interlude-video">
-      <div class="interlude-background">
-        <h1 class="interlude-title">Video creator</h1>
-        <video autoplay class="" id="video-background" loop="true" muted="true" poster="./img/video-poster/Forest_Moment.jpg" src="./video/Forest.mov"></video>
-      </div>
-    </section>
     <!-- Media section -->
-    <!-- You can add a local videos or add substitute the video tag for an iframe with ie a youtube embed video. Important!: when you include a youtube video change the class 'video-wrapper' to 'youtube-wrapper' -->
+    <!-- You could add a local videos or an iframe with ie a youtube embed video (an example is provided). Important!: when you include a youtube video change the class 'video-wrapper' to 'youtube-wrapper' -->
     <section id="media-section">
+      <!-- Interlude inspirational video -->
+      <!-- Minimum image quality recommended 1920x1080 or 16:9 video -->
+      <section class="interlude" id="interlude-video">
+        <div class="interlude-background" id="interlude-video-background">
+          <h1 class="appear-with-js interlude-title">Video creator</h1>
+          <!-- You might use a video with autoplay behavior like the below -->
+          <!-- <video autoplay class="" id="video-background" loop="true" muted="true" poster="./img/video-poster/Forest_Moment.jpg" src="./video/Forest.mov"></video> -->
+        </div>
+      </section>
       <!-- Media grid -->
-      <div id="media-wrapper">
+      <!-- Minimum image quality recommended 1920x1080 or 16:9 video -->
+      <!-- <div id="media-wrapper">
         <div class="container-fluid" id="media-grid">
           <div class="justify-content-center row">
             <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CitySkylineTimeLapse_Moment.jpg" src="./video/CitySkylineTimeLapse.mov" title="Awesome video caption"></video>
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery1.jpg" src="#" title="Awesome video caption"></video>
+              <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7yAmMN_O7yg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               <span class="video-desc">
                 <span>
-                  By Beachfront from videvo.net
+                  Your awesome description
                 </span>
               </span>
             </div>
             <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CloudySkyTimeLapse_Moment.jpg" src="./video/CloudySkyTimeLapse.mov" title="Awesome video caption"></video>
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery13.jpg" src="#" title="Awesome video caption"></video>
               <span class="video-desc">
                 <span>
-                  By Videvo from videvo.net
+                  Your awesome description
                 </span>
               </span>
             </div>
             <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CityStreetTimeLapse_Moment.jpg" src="./video/CityStreetTimeLapse.mov" title="Awesome video caption"></video>
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery12.jpg" src="#" title="Awesome video caption"></video>
               <span class="video-desc">
                 <span>
-                  By Videvo from videvo.net
-                </span>
-              </span>
-            </div>
-          </div>
-          <div class="justify-content-center row">
-            <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CitySkylineTimeLapse_Moment.jpg" src="./video/CitySkylineTimeLapse.mov" title="Awesome video caption"></video>
-              <span class="video-desc">
-                <span>
-                  By Beachfront from videvo.net
-                </span>
-              </span>
-            </div>
-            <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CloudySkyTimeLapse_Moment.jpg" src="./video/CloudySkyTimeLapse.mov" title="Awesome video caption"></video>
-              <span class="video-desc">
-                <span>
-                  By Videvo from videvo.net
-                </span>
-              </span>
-            </div>
-            <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CityStreetTimeLapse_Moment.jpg" src="./video/CityStreetTimeLapse.mov" title="Awesome video caption"></video>
-              <span class="video-desc">
-                <span>
-                  By Videvo from videvo.net
+                  Your awesome description
                 </span>
               </span>
             </div>
           </div>
           <div class="justify-content-center row">
             <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CitySkylineTimeLapse_Moment.jpg" src="./video/CitySkylineTimeLapse.mov" title="Awesome video caption"></video>
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery13.jpg" src="#" title="Awesome video caption"></video>
               <span class="video-desc">
                 <span>
-                  By Beachfront from videvo.net
+                  Your awesome description
                 </span>
               </span>
             </div>
             <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CloudySkyTimeLapse_Moment.jpg" src="./video/CloudySkyTimeLapse.mov" title="Awesome video caption"></video>
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery1.jpg" src="#" title="Awesome video caption"></video>
               <span class="video-desc">
                 <span>
-                  By Videvo from videvo.net
+                  Your awesome description
                 </span>
               </span>
             </div>
             <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CityStreetTimeLapse_Moment.jpg" src="./video/CityStreetTimeLapse.mov" title="Awesome video caption"></video>
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery13.jpg" src="#" title="Awesome video caption"></video>
               <span class="video-desc">
                 <span>
-                  By Videvo from videvo.net
+                  Your awesome description
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="justify-content-center row">
+            <div class="appear-with-js video-wrapper">
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery12.jpg" src="#" title="Awesome video caption"></video>
+              <span class="video-desc">
+                <span>
+                  Your awesome description
+                </span>
+              </span>
+            </div>
+            <div class="appear-with-js video-wrapper">
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery13.jpg" src="#" title="Awesome video caption"></video>
+              <span class="video-desc">
+                <span>
+                  Your awesome description
+                </span>
+              </span>
+            </div>
+            <div class="appear-with-js video-wrapper">
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery12.jpg" src="#" title="Awesome video caption"></video>
+              <span class="video-desc">
+                <span>
+                  Your awesome description
                 </span>
               </span>
             </div>
           </div>
         </div>
-      </div>
-      <br><br><br>
+      </div> -->
       <!-- Media line -->
+      <!-- Minimum image quality recommended 1920x1080 or 16:9 video -->
       <div id="media-inline-wrapper">
         <div class="container-fluid" id="media-inline">
           <div class="flex-nowrap row">
             <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CitySkylineTimeLapse_Moment.jpg" src="./video/CitySkylineTimeLapse.mov" title="Awesome video caption"></video>
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery13.jpg" src="#" title="Awesome video caption"></video>
               <span class="video-desc">
                 <span>
-                  By Beachfront from videvo.net
+                  Your awesome description
                 </span>
               </span>
             </div>
             <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CloudySkyTimeLapse_Moment.jpg" src="./video/CloudySkyTimeLapse.mov" title="Awesome video caption"></video>
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery12.jpg" src="#" title="Awesome video caption"></video>
               <span class="video-desc">
                 <span>
-                  By Videvo from videvo.net
+                  Your awesome description
                 </span>
               </span>
             </div>
             <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CityStreetTimeLapse_Moment.jpg" src="./video/CityStreetTimeLapse.mov" title="Awesome video caption"></video>
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery1.jpg" src="#" title="Awesome video caption"></video>
               <span class="video-desc">
                 <span>
-                  By Videvo from videvo.net
+                  Your awesome description
                 </span>
               </span>
             </div>
             <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CitySkylineTimeLapse_Moment.jpg" src="./video/CitySkylineTimeLapse.mov" title="Awesome video caption"></video>
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery13.jpg" src="#" title="Awesome video caption"></video>
               <span class="video-desc">
                 <span>
-                  By Beachfront from videvo.net
+                  Your awesome description
                 </span>
               </span>
             </div>
             <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CloudySkyTimeLapse_Moment.jpg" src="./video/CloudySkyTimeLapse.mov" title="Awesome video caption"></video>
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery12.jpg" src="#" title="Awesome video caption"></video>
               <span class="video-desc">
                 <span>
-                  By Videvo from videvo.net
+                  Your awesome description
                 </span>
               </span>
             </div>
             <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CityStreetTimeLapse_Moment.jpg" src="./video/CityStreetTimeLapse.mov" title="Awesome video caption"></video>
+              <video class="grid-video" controls loop="true" muted="true" poster="./img/gallery1.jpg" src="#" title="Awesome video caption"></video>
               <span class="video-desc">
                 <span>
-                  By Videvo from videvo.net
-                </span>
-              </span>
-            </div>
-            <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CitySkylineTimeLapse_Moment.jpg" src="./video/CitySkylineTimeLapse.mov" title="Awesome video caption"></video>
-              <span class="video-desc">
-                <span>
-                  By Beachfront from videvo.net
-                </span>
-              </span>
-            </div>
-            <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CloudySkyTimeLapse_Moment.jpg" src="./video/CloudySkyTimeLapse.mov" title="Awesome video caption"></video>
-              <span class="video-desc">
-                <span>
-                  By Videvo from videvo.net
-                </span>
-              </span>
-            </div>
-            <div class="appear-with-js video-wrapper">
-              <video class="grid-video" controls loop="true" muted="true" poster="./img/video-poster/CityStreetTimeLapse_Moment.jpg" src="./video/CityStreetTimeLapse.mov" title="Awesome video caption"></video>
-              <span class="video-desc">
-                <span>
-                  By Videvo from videvo.net
+                  Your awesome description
                 </span>
               </span>
             </div>
@@ -702,6 +676,7 @@
       </div>
     </section>
     <!-- last articles section -->
+    <!-- Minimum image quality recommended 640x427px -->
     <section id="last-articles-section">
       <div class="container-lg">
         <div class="appear-with-js no-gutters row" id="articles-showmore-row">
@@ -710,7 +685,7 @@
         <div class="card appear-with-js">
           <div class="no-gutters row">
             <div class="col-md-4 img-col">
-              <img alt="" class="card-img responsive" loading="lazy" src="https://picsum.photos/400/300">
+              <img alt="" class="card-img responsive" loading="lazy" src="img/works1.jpg">
             </div>
             <div class="col-md-8 body-col">
               <div class="card-body">
@@ -729,7 +704,7 @@
         <div class="appear-with-js card">
           <div class="no-gutters row">
             <div class="col-md-4 img-col">
-              <img alt="" class="card-img responsive" loading="lazy" src="https://picsum.photos/400/300">
+              <img alt="" class="card-img responsive" loading="lazy" src="img/works2.jpg">
             </div>
             <div class="col-md-8 body-col">
               <div class="card-body">
@@ -748,7 +723,7 @@
         </div><div class="appear-with-js card">
           <div class="no-gutters row">
             <div class="col-md-4 img-col">
-              <img alt="" class="card-img responsive" loading="lazy" src="https://picsum.photos/400/300">
+              <img alt="" class="card-img responsive" loading="lazy" src="img/works3.jpg">
             </div>
             <div class="col-md-8 body-col">
               <div class="card-body">
@@ -771,13 +746,14 @@
       </div>
     </section>
     <!-- About me section / footer -->
+    <!-- Minimum image quality recommended 1920x1080-->
     <section id="me-section">
       <div class="container-lg">
         <div class="appear-with-js no-gutters row">
           <div class="col-12 col-md-auto mx-md-4 my-auto">
             <!-- Avatar -->
+            <!-- Minimum image quality recommended 300x300px-->
             <div class="mx-auto my-2" id="avatar"></div>
-            <!-- <span>Photo by <a href="https://unsplash.com/@zane404?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Zane Lee</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span> -->
           </div>
           <!-- About me text -->
           <div class="col-12 col-md my-auto px-2">
